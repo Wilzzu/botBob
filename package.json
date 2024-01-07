@@ -1,0 +1,25 @@
+{
+	"name": "botbob",
+	"version": "1.0.0",
+	"description": "Simple Discord bot primarily made for our private server",
+	"main": "src/index.js",
+	"scripts": {
+		"dev": "node --watch .",
+		"start": "node ."
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/Wilzzu/botBob.git"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/Wilzzu/botBob/issues"
+	},
+	"homepage": "https://github.com/Wilzzu/botBob#readme",
+	"dependencies": {
+		"discord.js": "^14.14.1",
+		"dotenv": "^16.3.1"
+	}
+}

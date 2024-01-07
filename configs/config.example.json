@@ -1,0 +1,9 @@
+{
+	"prefix": "!",
+	"language": "EN",
+	"guildID": "1",
+	"mainChannelID": "2",
+	"cooldownDatabaseGuildID": "3",
+	"cooldownDatabaseChannelID": "4",
+	"respondWords": ["hello", "bye"]
+}
