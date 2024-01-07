@@ -1,0 +1,15 @@
+{
+	"FI": {
+		"testMessage": "Testi viesti!",
+		"error": {
+			"commandExec": "Komentoa suorittaessa tapahtui virhe!"
+		}
+	},
+
+	"EN": {
+		"testMessage": "Test message!",
+		"error": {
+			"commandExec": "There was an error while executing this command!"
+		}
+	}
+}
