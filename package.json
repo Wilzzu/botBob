@@ -2,7 +2,7 @@
 	"name": "botbob",
 	"version": "1.0.0",
 	"description": "Simple Discord bot primarily made for our private server",
-	"main": "src/index.js",
+	"main": "index.js",
 	"scripts": {
 		"dev": "node --watch .",
 		"start": "node ."
