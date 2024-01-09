@@ -1,9 +1,9 @@
 const { AttachmentBuilder } = require("discord.js");
-const { customResponses } = require("../configs/config.json");
+const { customUserResponses } = require("../configs/config.json");
 
 // Send a customized message to a specific user randomly
 module.exports = function (msg) {
-	const user = customResponses.find((user) => user.id === msg.author.id);
+	const user = customUserResponses.find((user) => user.id === msg.author.id);
 	if (!user) return;
 
 	// Only send the message if the chance is lower than a randomized number

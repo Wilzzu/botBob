@@ -1,8 +1,8 @@
 const { Events } = require("discord.js");
-const respondToMessage = require("../actions/respondToMessage");
-const strings = require("../configs/languages.json");
+const duplicateMessage = require("../actions/duplicateMessage");
 const sendCustomResponse = require("../actions/sendCustomResponse");
 const executeChatCommand = require("../actions/executeChatCommand");
+const respondToSpecificWord = require("../actions/respondToSpecificWord");
 
 module.exports = {
 	name: Events.MessageCreate,
@@ -10,12 +10,15 @@ module.exports = {
 		if (msg.author.bot) return;
 
 		// Respond to specific messages with the same message
-		if (respondToMessage(msg)) return;
+		if (duplicateMessage(msg)) return;
 
 		// If message starts with prefix, execute the command
 		if (executeChatCommand(msg)) return;
 
-		// Send a customized message to a specific user randomly
+		// If message mentions the bot and contains a specific word, respond to it
+		if (respondToSpecificWord(msg)) return;
+
+		// Randomly send a customized message to a specific user
 		sendCustomResponse(msg);
 	},
 };
