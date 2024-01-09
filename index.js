@@ -3,6 +3,7 @@ const fs = require("fs");
 const path = require("path");
 require("dotenv").config();
 
+// Create client with required intents
 const client = new Client({
 	intents: [
 		GatewayIntentBits.Guilds,

@@ -5,8 +5,8 @@
 	"mainChannelID": "2",
 	"cooldownDatabaseGuildID": "3",
 	"cooldownDatabaseChannelID": "4",
-	"respondWords": ["hello", "bye"],
-	"customResponses": [
+	"duplicateMessages": ["hello", "bye"],
+	"customUserResponses": [
 		{ "name": "User 1", "id": "1", "message": "Custom reply to the user", "chance": 0.001 },
 		{
 			"name": "User 2",
@@ -14,5 +14,7 @@
 			"file": "link-to-a-file",
 			"chance": 0.01
 		}
-	]
+	],
+	"wordsBotWillRespondTo": ["dumb", "stupid", "moron", "fool"],
+	"botResponses": ["Be respectful, please.", "Thats not nice!"]
 }
