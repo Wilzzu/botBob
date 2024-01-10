@@ -1,15 +1,43 @@
 {
-	"FI": {
-		"testMessage": "Testi viesti!",
+	"fi": {
+		"ai": {
+			"timeout": "Come up with a comment for a user who was voted to be timed out on a Discord server. Add this user's name to the comment like this: [username]. Be as creative and funny as possible. Make sure to add couple emojis to the comment. You can also add couple hashtags to the end of the comment. The comment must be in Finnish. Only give me the comment as the response."
+		},
+		"commands": {
+			"timeout": {
+				"name": "jäähy",
+				"description": "Äänestä käyttäjä jäähylle",
+				"user": "käyttäjä",
+				"userDesc": "Valitse käyttäjä jonka haluat äänestää jäähylle",
+				"errors": {
+					"noUser": "Et valinnut käyttäjää ❌",
+					"botUser": "Et voi äänestää bottia jäähylle ❌"
+				}
+			}
+		},
 		"error": {
 			"commandExec": "Komentoa suorittaessa tapahtui virhe!"
 		}
 	},
 
-	"EN": {
-		"testMessage": "Test message!",
+	"en-US": {
+		"ai": {
+			"timeout": "Come up with a comment for a user who was voted to be timed out on a Discord server. Add this user's name to the comment like this: [username]. Be as creative and funny as possible. Make sure to add couple emojis to the comment. You can also add couple hashtags to the end of the comment. Only give me the comment as the response."
+		},
+		"commands": {
+			"timeout": {
+				"name": "timeout",
+				"description": "Start a vote to timeout a user",
+				"user": "user",
+				"userDesc": "Select the user you want to timeout",
+				"errors": {
+					"noUser": "You didn't select a user ❌",
+					"botUser": "You can't timeout a bot ❌"
+				}
+			}
+		},
 		"error": {
-			"commandExec": "There was an error while executing this command!"
+			"commandExec": "An error occurred while executing the command!"
 		}
 	}
 }

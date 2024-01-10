@@ -1,10 +1,14 @@
 {
 	"prefix": "!",
-	"language": "EN",
+	"language": "en-US",
 	"guildID": "1",
 	"mainChannelID": "2",
 	"cooldownDatabaseGuildID": "3",
 	"cooldownDatabaseChannelID": "4",
+	"RapidAPI": {
+		"url": "https://open-ai25.p.rapidapi.com/ask",
+		"host": "open-ai25.p.rapidapi.com"
+	},
 	"duplicateMessages": ["hello", "bye"],
 	"customUserResponses": [
 		{ "name": "User 1", "id": "1", "message": "Custom reply to the user", "chance": 0.001 },
