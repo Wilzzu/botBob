@@ -7,7 +7,14 @@ const str = require("../../configs/languages.json");
 const endVote = require("./endVote");
 const getNeededVotes = require("./getNeededVotes");
 
-module.exports = function updateVote(interaction, message, voteCollector, user, voiceChannelID) {
+module.exports = function updateVote(
+	interaction,
+	message,
+	voteCollector,
+	user,
+	voiceChannelID,
+	usersBeingTimedOut
+) {
 	let timeLeft = timeout.voteDuration - 2;
 	const votes = { voteYes: [], voteNo: [] };
 
@@ -58,9 +65,6 @@ module.exports = function updateVote(interaction, message, voteCollector, user, 
 		message.edit({ embeds: [updatedVoteEmbed] });
 
 		// Stop the vote when time is over
-		timeLeft -= 2;
-
-		// TODO: Maybe move this before subtracting timeLeft, depending on how fast endVote will update the embed
 		if (
 			timeLeft <= 0 ||
 			votes.voteYes.length >= votesNeeded ||
@@ -68,7 +72,9 @@ module.exports = function updateVote(interaction, message, voteCollector, user, 
 		) {
 			clearInterval(interval);
 			voteCollector.stop();
-			endVote(message);
+			endVote(message, votes, user, voiceChannelID, usersBeingTimedOut);
 		}
+
+		timeLeft -= 2;
 	}, 2000);
 };
