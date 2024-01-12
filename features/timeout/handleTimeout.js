@@ -106,12 +106,16 @@ const handleTimeout = async (interaction, user) => {
 		componentType: ComponentType.Button,
 	});
 
-	updateVote(interaction, message, voteCollector, user, validation.voiceChannelID);
+	updateVote(
+		interaction,
+		message,
+		voteCollector,
+		user,
+		validation.voiceChannelID,
+		usersBeingTimedOut
+	);
 };
 
 module.exports = {
 	handleTimeout,
-	usersBeingTimedOut,
-	timeoutDB,
-	aiResponses,
 };
