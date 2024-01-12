@@ -6,14 +6,36 @@ const {
 	features: { timeout },
 } = require("../../configs/config.json");
 const str = require("../../configs/languages.json");
-const { EmbedBuilder, userMention } = require("discord.js");
+const {
+	EmbedBuilder,
+	userMention,
+	ButtonBuilder,
+	ActionRowBuilder,
+	ButtonStyle,
+	ComponentType,
+} = require("discord.js");
 const validateVoteStart = require("./validateVoteStart");
 const updateVote = require("./updateVote");
+const getNeededVotes = require("./getNeededVotes");
 
 // Globals
 let usersBeingTimedOut = [];
 let timeoutDB = [];
 let aiResponses = [];
+
+const createButtons = () => {
+	const voteYesButton = new ButtonBuilder()
+		.setCustomId("voteYes")
+		.setLabel(str[lang].timeout.voteYesButton)
+		.setStyle(ButtonStyle.Success);
+
+	const voteNoButton = new ButtonBuilder()
+		.setCustomId("voteNo")
+		.setLabel(str[lang].timeout.voteNoButton)
+		.setStyle(ButtonStyle.Danger);
+
+	return new ActionRowBuilder().addComponents(voteYesButton, voteNoButton);
+};
 
 const createEmbed = (user, votesNeeded) => {
 	return new EmbedBuilder()
@@ -52,15 +74,9 @@ const handleTimeout = async (interaction, user) => {
 	usersBeingTimedOut.push(user?.id);
 
 	// Get the amount of votes needed to instantly end the vote
-	// TODO: Move this to it's own function file and call it in updateVote using original voiceChannel ID
 	let votesNeeded = null;
-	if (validation.voiceChannelID) {
-		let voiceSize = interaction.guild.channels.cache
-			.get(validation.voiceChannelID)
-			.members.filter((member) => !member.user.bot).size;
-		if (voiceSize % 1 == 0) voiceSize++;
-		votesNeeded = voiceSize >= 2 ? Math.ceil(voiceSize / 2) : 2;
-	}
+	if (validation.voiceChannelID)
+		votesNeeded = getNeededVotes(interaction, validation.voiceChannelID);
 
 	// Generate new response with AI if needed
 	// if (aiResponses.length < usersBeingTimedOut.length)
@@ -84,10 +100,13 @@ const handleTimeout = async (interaction, user) => {
 	// Create vote embed and send it to main channel
 	let message = await interaction.client.channels.cache
 		.get(mainChannelID)
-		.send({ embeds: [createEmbed(user, votesNeeded)] });
+		.send({ embeds: [createEmbed(user, votesNeeded)], components: [createButtons()] });
 
-	// TODO: Pass identifiers to this
-	updateVote(message);
+	const voteCollector = message.createMessageComponentCollector({
+		componentType: ComponentType.Button,
+	});
+
+	updateVote(interaction, message, voteCollector, user, validation.voiceChannelID);
 };
 
 module.exports = {
