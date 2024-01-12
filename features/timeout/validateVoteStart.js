@@ -1,5 +1,5 @@
-const { language } = require("../../configs/config.json");
-const strings = require("../../configs/languages.json");
+const { lang } = require("../../configs/config.json");
+const str = require("../../configs/languages.json");
 
 // Return false if vote is not valid
 const getVoiceStates = (interaction, user) => {
@@ -19,21 +19,24 @@ module.exports = function validateVoteStart(interaction, user, usersBeingTimedOu
 
 	// If a vote is already in progress for the user
 	if (usersBeingTimedOut.includes(user?.id))
-		return { ...validation, reason: strings[language].timeout.voteAlreadyStarted };
+		return { ...validation, reason: str[lang].timeout.voteAlreadyStarted };
 
 	// If user is already timed out
 	if (timeoutDB.some((e) => e.id === user.id))
-		return { ...validation, reason: strings[language].timeout.alreadyOnTimeout };
+		return { ...validation, reason: str[lang].timeout.alreadyOnTimeout };
 
 	// If vote initiator is timed out
 	if (
 		timeoutDB.some((e) => (e.id === interaction.type ? interaction.user.id : interaction.author.id))
 	)
-		return { ...validation, reason: strings[language].timeout.voterIsTimedOut, ephemeral: false };
+		return { ...validation, reason: str[lang].timeout.voterIsTimedOut, ephemeral: false };
 
 	// If vote initiator and target are not on the same voice channel
 	if (!getVoiceStates(interaction, user))
-		return { ...validation, reason: strings[language].timeout.userOnDifferentChannel };
+		return { ...validation, reason: str[lang].timeout.userOnDifferentChannel };
 
-	return { valid: true };
+	return {
+		valid: true,
+		voiceChannelID: interaction.guild.members.cache.get(user.id).voice.channelId,
+	};
 };
