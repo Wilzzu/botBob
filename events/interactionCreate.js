@@ -1,6 +1,6 @@
 const { Events } = require("discord.js");
-const { language } = require("../configs/config.json");
-const strings = require("../configs/languages.json");
+const { lang } = require("../configs/config.json");
+const str = require("../configs/languages.json");
 
 module.exports = {
 	name: Events.InteractionCreate,
@@ -20,12 +20,12 @@ module.exports = {
 			console.error(error);
 			if (interaction.replied || interaction.deferred) {
 				await interaction.followUp({
-					content: strings[language].error.commandExec,
+					content: str[lang].error.commandExec,
 					ephemeral: true,
 				});
 			} else {
 				await interaction.reply({
-					content: strings[language].error.commandExec,
+					content: str[lang].error.commandExec,
 					ephemeral: true,
 				});
 			}

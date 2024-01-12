@@ -1,6 +1,6 @@
 {
 	"prefix": "!",
-	"language": "en-US",
+	"lang": "en-US",
 	"guildID": "1",
 	"mainChannelID": "2",
 	"cooldownDatabaseGuildID": "3",

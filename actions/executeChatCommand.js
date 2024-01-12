@@ -1,4 +1,4 @@
-const { prefix, language } = require("../configs/config.json");
+const { prefix, lang } = require("../configs/config.json");
 
 // If message starts with prefix, execute chat command
 module.exports = function (msg) {
@@ -16,7 +16,7 @@ module.exports = function (msg) {
 			return command.execute(msg, args);
 		} catch (error) {
 			console.error(error);
-			return msg.reply(strings[language].error.commandExec);
+			return msg.reply(str[lang].error.commandExec);
 		}
 	}
 };
