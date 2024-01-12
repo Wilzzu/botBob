@@ -1,7 +1,7 @@
 const { SlashCommandBuilder } = require("discord.js");
 const { language } = require("../../configs/config.json");
 const strings = require("../../configs/languages.json");
-const handleTimeout = require("../../actions/handleTimeout");
+const handleTimeout = require("../../features/timeout/handleTimeout");
 
 module.exports = {
 	data: new SlashCommandBuilder()
@@ -21,8 +21,16 @@ module.exports = {
 			: interaction.mentions.users.first();
 
 		// Check if user is valid
-		if (!user) return await interaction.reply(strings[language].commands.timeout.errors.noUser);
-		if (user.bot) return await interaction.reply(strings[language].commands.timeout.errors.botUser);
+		if (!user)
+			return await interaction.reply({
+				content: strings[language].commands.timeout.errors.noUser,
+				ephemeral: true,
+			});
+		if (user.bot)
+			return await interaction.reply({
+				content: strings[language].commands.timeout.errors.botUser,
+				ephemeral: true,
+			});
 
 		handleTimeout(interaction, user);
 	},
