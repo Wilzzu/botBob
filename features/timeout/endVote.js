@@ -3,10 +3,7 @@ const {
 	lang,
 } = require("../../configs/config.json");
 const str = require("../../configs/languages.json");
-
-const tiebreaker = () => {
-	console.log("Rock paper scissors");
-};
+const tiebreaker = require("./tiebreaker");
 
 // Calculate vote's result
 const calculateVotes = (votes) => {
@@ -23,17 +20,14 @@ const calculateVotes = (votes) => {
 
 module.exports = function endVote(message, votes, user, voiceChannelID, usersBeingTimedOut) {
 	let description = str[lang].timeout.embedDescEnd;
-
 	let vote = calculateVotes(votes);
-	if (vote?.tie) {
-		console.log("tie");
-	} else {
+
+	if (vote?.tie) tiebreaker(message, user, description + vote.desc, votes);
+	else {
 		// TODO: Put all the end stuff in own function, so it can be called from tiebreaker as well
 		// Remove user from usersBeingTimedOut
 		usersBeingTimedOut.splice(usersBeingTimedOut.indexOf(user.id), 1);
 	}
-
-	console.log(usersBeingTimedOut);
 
 	// Remove user from usersBeingTimedOut
 	// Add user to timeoutDB if vote passed

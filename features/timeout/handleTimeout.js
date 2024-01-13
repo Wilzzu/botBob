@@ -12,7 +12,6 @@ const {
 	ButtonBuilder,
 	ActionRowBuilder,
 	ButtonStyle,
-	ComponentType,
 } = require("discord.js");
 const validateVoteStart = require("./validateVoteStart");
 const updateVote = require("./updateVote");
@@ -26,12 +25,12 @@ let aiResponses = [];
 const createButtons = () => {
 	const voteYesButton = new ButtonBuilder()
 		.setCustomId("voteYes")
-		.setLabel(str[lang].timeout.voteYesButton)
+		.setLabel(str[lang].timeout.yesVotes)
 		.setStyle(ButtonStyle.Success);
 
 	const voteNoButton = new ButtonBuilder()
 		.setCustomId("voteNo")
-		.setLabel(str[lang].timeout.voteNoButton)
+		.setLabel(str[lang].timeout.noVotes)
 		.setStyle(ButtonStyle.Danger);
 
 	return new ActionRowBuilder().addComponents(voteYesButton, voteNoButton);
@@ -48,12 +47,12 @@ const createEmbed = (user, votesNeeded) => {
 		.setDescription(str[lang].timeout.embedDesc.replace("${timeLeft}", timeout.voteDuration))
 		.addFields(
 			{
-				name: `${str[lang].timeout.yesVotes}: 0${votesNeeded ? "/" + votesNeeded : ""}`,
+				name: `✅ ${str[lang].timeout.yesVotes}: 0${votesNeeded ? "/" + votesNeeded : ""}`,
 				value: "\u200B",
 				inline: true,
 			},
 			{
-				name: `${str[lang].timeout.noVotes}: 0${votesNeeded ? "/" + votesNeeded : ""}`,
+				name: `❌ ${str[lang].timeout.noVotes}: 0${votesNeeded ? "/" + votesNeeded : ""}`,
 				value: "\u200B",
 				inline: true,
 			}
@@ -102,18 +101,7 @@ const handleTimeout = async (interaction, user) => {
 		.get(mainChannelID)
 		.send({ embeds: [createEmbed(user, votesNeeded)], components: [createButtons()] });
 
-	const voteCollector = message.createMessageComponentCollector({
-		componentType: ComponentType.Button,
-	});
-
-	updateVote(
-		interaction,
-		message,
-		voteCollector,
-		user,
-		validation.voiceChannelID,
-		usersBeingTimedOut
-	);
+	updateVote(interaction, message, user, validation.voiceChannelID, usersBeingTimedOut);
 };
 
 module.exports = {

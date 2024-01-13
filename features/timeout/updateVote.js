@@ -1,4 +1,4 @@
-const { EmbedBuilder } = require("discord.js");
+const { EmbedBuilder, ComponentType } = require("discord.js");
 const {
 	features: { timeout },
 	lang,
@@ -7,10 +7,19 @@ const str = require("../../configs/languages.json");
 const endVote = require("./endVote");
 const getNeededVotes = require("./getNeededVotes");
 
+const findUserById = (id, votes) => {
+	for (const key in votes) {
+		if (votes.hasOwnProperty(key)) {
+			const user = votes[key].find((user) => user.id === id);
+			if (user) return user;
+		}
+	}
+	return null;
+};
+
 module.exports = function updateVote(
 	interaction,
 	message,
-	voteCollector,
 	user,
 	voiceChannelID,
 	usersBeingTimedOut
@@ -18,12 +27,13 @@ module.exports = function updateVote(
 	let timeLeft = timeout.voteDuration - 2;
 	const votes = { voteYes: [], voteNo: [] };
 
+	const voteCollector = message.createMessageComponentCollector({
+		componentType: ComponentType.Button,
+	});
+
 	voteCollector.on("collect", async (i) => {
 		// Check if user already voted
-		if (
-			votes.voteYes.find((e) => e.id === i.user.id) ||
-			votes.voteNo.find((e) => e.id === i.user.id)
-		)
+		if (findUserById(i.user.id, votes))
 			return await i.reply({ content: str[lang].timeout.alreadyVoted, ephemeral: true });
 
 		// Check if user is trying to vote no on themselves
@@ -45,7 +55,7 @@ module.exports = function updateVote(
 			.setFields(
 				{
 					// Vote amount
-					name: `${str[lang].timeout.yesVotes}: ${votes.voteYes.length}${
+					name: `✅ ${str[lang].timeout.yesVotes}: ${votes.voteYes.length}${
 						votesNeeded ? "/" + votesNeeded : ""
 					}`,
 					// Users who have voted
@@ -53,7 +63,7 @@ module.exports = function updateVote(
 					inline: true,
 				},
 				{
-					name: `${str[lang].timeout.noVotes}: ${votes.voteNo.length}${
+					name: `❌ ${str[lang].timeout.noVotes}: ${votes.voteNo.length}${
 						votesNeeded ? "/" + votesNeeded : ""
 					}`,
 					value: votes.voteNo.length ? votes.voteNo.map((e) => e.username).join("\n") : "\u200B",
