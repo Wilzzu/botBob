@@ -1,5 +1,6 @@
 const { lang } = require("../../configs/config.json");
 const str = require("../../configs/languages.json");
+const timeoutDb = require("../../databases/timeoutDb.json");
 
 // Return false if vote is not valid
 const getVoiceStates = (interaction, user) => {
@@ -14,7 +15,7 @@ const getVoiceStates = (interaction, user) => {
 	return false;
 };
 
-module.exports = function validateVoteStart(interaction, user, usersBeingTimedOut, timeoutDB) {
+module.exports = function validateVoteStart(interaction, user, usersBeingTimedOut) {
 	let validation = { valid: false, reason: "", ephemeral: true };
 
 	// If a vote is already in progress for the user
@@ -22,12 +23,12 @@ module.exports = function validateVoteStart(interaction, user, usersBeingTimedOu
 		return { ...validation, reason: str[lang].timeout.voteAlreadyStarted };
 
 	// If user is already timed out
-	if (timeoutDB.some((e) => e.id === user.id))
+	if (timeoutDb.some((e) => e.id === user.id))
 		return { ...validation, reason: str[lang].timeout.alreadyOnTimeout };
 
 	// If vote initiator is timed out
 	if (
-		timeoutDB.some((e) => (e.id === interaction.type ? interaction.user.id : interaction.author.id))
+		timeoutDb.some((e) => e.id === (interaction.type ? interaction.user.id : interaction.author.id))
 	)
 		return { ...validation, reason: str[lang].timeout.voterIsTimedOut, ephemeral: false };
 

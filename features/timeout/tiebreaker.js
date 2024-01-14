@@ -38,22 +38,97 @@ const createTieEmbed = (message, desc, votes, timeleft) => {
 		.setDescription(desc)
 		.setFields(
 			{
-				name: `✅ ${str[lang].timeout.teamName} ${str[lang].timeout.yesVotes}`,
+				name: `✅ ${str[lang].timeout.teamName} ${str[lang].timeout.yesVotes.toUpperCase()}`,
 				value: votes.voteYes
-					.map((e) => `${e.rps ? "**🟢" : "⚪"} ${e.username}${e.rps ? "**" : ""}`)
+					.map(
+						(e) => `${e.rps ? "**:ballot_box_with_check:" : "❔"} ${e.username}${e.rps ? "**" : ""}`
+					)
 					.join("\n"),
 				inline: true,
 			},
 			{
-				name: `❌ ${str[lang].timeout.teamName} ${str[lang].timeout.noVotes}`,
+				name: `❌ ${str[lang].timeout.teamName} ${str[lang].timeout.noVotes.toUpperCase()}`,
 				value: votes.voteNo
-					.map((e) => `${e.rps ? "**🟢" : "⚪"} ${e.username}${e.rps ? "**" : ""}`)
+					.map(
+						(e) => `${e.rps ? "**:ballot_box_with_check:" : "❔"} ${e.username}${e.rps ? "**" : ""}`
+					)
 					.join("\n"),
 				inline: true,
 			},
 			{
 				name: "\u200B",
 				value: str[lang].timeout.rpsDesc.replace("${timeLeft}", timeleft),
+			}
+		);
+};
+
+const createFinalEmbed = (message, user, votes, results) => {
+	// Replace choices with emojis
+	let replaceMap = {
+		rock: "🗿",
+		paper: "📜",
+		scissors: ":scissors:",
+	};
+
+	if (results?.choices) {
+		for (const key in results.choices) {
+			if (results.choices.hasOwnProperty(key)) {
+				results.choices[key] = replaceMap[results.choices[key]];
+			}
+		}
+	}
+
+	// Create string to show what the teams chose and who won
+	let teamChoices = results?.choices
+		? str[lang].timeout.rpsTeamChoices
+				.replace("${teamYes}", results.choices.yesTeam)
+				.replace("${teamNo}", results.choices.noTeam)
+		: results.res === 1
+		? str[lang].timeout.rpsNeitherTeamVoted
+		: str[lang].timeout.rpsOtherTeamDidntVote;
+
+	let resultString =
+		results.res === 1
+			? str[lang].timeout.rpsResultsTie
+			: str[lang].timeout.rpsResults.replace(
+					"${winner}",
+					results.res === 2
+						? `${str[lang].timeout.teamName} ${str[lang].timeout.yesVotes}`.toUpperCase()
+						: `${str[lang].timeout.teamName} ${str[lang].timeout.noVotes}`.toUpperCase()
+			  );
+
+	// Determine action taken string
+	let actionTaken = str[lang].timeout.voteFailed;
+	if (results.res === 2) actionTaken = str[lang].timeout.votePassed;
+
+	// Add 🏆 to winner team, show team choices, show player choices, show winner
+	return EmbedBuilder.from(message.embeds[0])
+		.setColor("#808080")
+		.setFields(
+			{
+				name: `${results?.choices ? results.choices.yesTeam : ""} ${
+					str[lang].timeout.teamName
+				} ${str[lang].timeout.yesVotes.toUpperCase()} ${results.res === 2 ? "🏆" : ""}`,
+				value: votes.voteYes
+					.map((e) => `${e.rps ? "**" + e.rps.emoji : "~~❔"} ${e.username}${e.rps ? "**" : "~~"}`)
+					.join("\n"),
+				inline: true,
+			},
+			{
+				name: `${results?.choices ? results.choices.noTeam : ""} ${
+					str[lang].timeout.teamName
+				} ${str[lang].timeout.noVotes.toUpperCase()} ${results.res === 3 ? "🏆" : ""}`,
+				value: votes.voteNo
+					.map((e) => `${e.rps ? "**" + e.rps.emoji : "~~❔"} ${e.username}${e.rps ? "**" : "~~"}`)
+					.join("\n"),
+				inline: true,
+			},
+			{
+				name: "\u200B",
+				value: `${teamChoices} = ${resultString}\n${actionTaken.replace(
+					"${username}",
+					user?.globalName || user?.username
+				)}`,
 			}
 		);
 };
@@ -68,17 +143,18 @@ const findUserById = (id, votes) => {
 	return null;
 };
 
+// Determine winner, 1 = tie, 2 = yes, 3 = no
 const calculateWinner = (votes) => {
 	// Get all the choices and put them in array, filter out null values
 	const yesChoices = votes.voteYes.map((user) => user.rps?.choice).filter((e) => e);
 	const noChoices = votes.voteNo.map((user) => user.rps?.choice).filter((e) => e);
 
 	// If there are no choices, it's a tie
-	if (!yesChoices.length && !noChoices.length) return "tie";
+	if (!yesChoices.length && !noChoices.length) return { res: 1 };
 
 	// If there are no choices on one side, the other side wins
-	if (!yesChoices.length) return "no";
-	if (!noChoices.length) return "yes";
+	if (!noChoices.length) return { res: 2 };
+	if (!yesChoices.length) return { res: 3 };
 
 	// Count the amount of each choice
 	const yesChoice = yesChoices.reduce((acc, curr) => {
@@ -97,22 +173,23 @@ const calculateWinner = (votes) => {
 	const noMostChosen = Object.keys(noChoice).reduce((a, b) => (noChoice[a] > noChoice[b] ? a : b));
 
 	// Determine winner
-	if (yesMostChosen === noMostChosen) return "tie";
+	if (yesMostChosen === noMostChosen)
+		return { res: 1, choices: { yesTeam: yesMostChosen, noTeam: noMostChosen } };
 	if (
 		(yesMostChosen === "rock" && noMostChosen === "scissors") ||
 		(yesMostChosen === "paper" && noMostChosen === "rock") ||
 		(yesMostChosen === "scissors" && noMostChosen === "paper")
 	)
-		return "yes";
-	return "no";
+		return { res: 2, choices: { yesTeam: yesMostChosen, noTeam: noMostChosen } };
+	return { res: 3, choices: { yesTeam: yesMostChosen, noTeam: noMostChosen } };
 };
 
 module.exports = function tiebreaker(message, user, desc, votes) {
-	let timeleft = timeout.rpsDuration - 2;
+	let timeleft = timeout.rpsDuration;
 
 	// Update embed with tiebreaker info
 	message.edit({
-		embeds: [createTieEmbed(message, desc, votes, timeleft + 2)],
+		embeds: [createTieEmbed(message, desc, votes, timeleft)],
 		components: [createTieButtons()],
 	});
 
@@ -150,14 +227,12 @@ module.exports = function tiebreaker(message, user, desc, votes) {
 				break;
 		}
 
-		await i.deferUpdate();
+		// Update embed with user's choice
+		await i.update({ embeds: [createTieEmbed(message, desc, votes, timeleft)] });
 	});
 
 	const interval = setInterval(() => {
-		// Update embed with new time and votes
-		message.edit({
-			embeds: [createTieEmbed(message, desc, votes, timeleft)],
-		});
+		timeleft -= 2;
 
 		// Check if all users have chosen, or if time is up
 		if (
@@ -166,12 +241,17 @@ module.exports = function tiebreaker(message, user, desc, votes) {
 		) {
 			clearInterval(interval);
 			rpsCollector.stop();
-			console.log(calculateWinner(votes));
-			// TODO: Send final embed with winner team having a 🏆 next to their name
-			// and the player choices are shown instead of the circle
-			// also add the teams choise
-		}
 
-		timeleft -= 2;
+			// Calculate winner and update embed with final result
+			message.edit({
+				embeds: [createFinalEmbed(message, user, votes, calculateWinner(votes))],
+				components: [],
+			});
+		} else {
+			// Update embed with new time and votes
+			message.edit({
+				embeds: [createTieEmbed(message, desc, votes, timeleft)],
+			});
+		}
 	}, 2000);
 };
