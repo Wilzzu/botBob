@@ -7,6 +7,7 @@ const tiebreaker = require("./tiebreaker");
 
 // Calculate vote's result
 const calculateVotes = (votes) => {
+	if (!votes.voteYes.length) return { passed: false, desc: str[lang].timeout.notEnoughVotes };
 	if (votes.voteYes.length > votes.voteNo.length) {
 		if (votes.voteYes.length < 2) return { passed: false, desc: str[lang].timeout.notEnoughVotes };
 		return { passed: true, desc: str[lang].timeout.votePassed };
@@ -16,6 +17,10 @@ const calculateVotes = (votes) => {
 		return { desc: str[lang].timeout.tie, tie: true };
 
 	return { passed: false, desc: str[lang].timeout.voteFailed };
+};
+
+const handleDatabase = (user) => {
+	// Add user to timeoutDb
 };
 
 module.exports = function endVote(message, votes, user, voiceChannelID, usersBeingTimedOut) {

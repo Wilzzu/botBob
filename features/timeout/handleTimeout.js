@@ -19,7 +19,6 @@ const getNeededVotes = require("./getNeededVotes");
 
 // Globals
 let usersBeingTimedOut = [];
-let timeoutDB = [];
 let aiResponses = [];
 
 const createButtons = () => {
@@ -62,7 +61,7 @@ const createEmbed = (user, votesNeeded) => {
 
 const handleTimeout = async (interaction, user) => {
 	// Check if vote should be started
-	let validation = validateVoteStart(interaction, user, usersBeingTimedOut, timeoutDB);
+	let validation = validateVoteStart(interaction, user, usersBeingTimedOut);
 	if (!validation.valid)
 		return await interaction.reply({
 			content: validation.reason.replace("${username}", userMention(user.id)),
