@@ -1,15 +1,15 @@
 const axios = require("axios");
-const { RapidAPI } = require("../configs/config.json");
+const { rapidAPI } = require("../configs/config.json");
 const { userMention } = require("discord.js");
 
 module.exports = async function getAIResponse(prompt, id) {
 	const options = {
 		method: "POST",
-		url: RapidAPI.url,
+		url: rapidAPI.url,
 		headers: {
 			"content-type": "application/json",
 			"X-RapidAPI-Key": process.env.RAPID_API_KEY,
-			"X-RapidAPI-Host": RapidAPI.host,
+			"X-RapidAPI-Host": rapidAPI.host,
 		},
 		data: { query: prompt },
 	};
