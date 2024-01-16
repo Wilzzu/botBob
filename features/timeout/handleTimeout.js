@@ -80,13 +80,28 @@ const handleTimeout = async (interaction, user) => {
 	// if (aiResponses.length < usersBeingTimedOut.length)
 	// 	aiResponses = await getAIResponse(str[lang].ai.timeout, user.id);
 
-	// Send confirmation message
-	if (interaction.channelId === mainChannelID && interaction.type)
-		await interaction.reply({
-			content: str[lang].timeout.startConfirm,
-			ephemeral: true,
+	// Send vote embed
+	let message = null;
+	if (interaction.channelId === mainChannelID) {
+		message = await interaction.reply({
+			embeds: [createEmbed(user, votesNeeded)],
+			components: [createButtons()],
 		});
-	else if (interaction.channelId !== mainChannelID)
+		if (interaction.type) message = await interaction.fetchReply();
+	}
+	// If vote wasn't created on the main channel
+	else if (interaction.channelId !== mainChannelID) {
+		// Create vote embed and send it to main channel
+		message = await interaction.client.channels.cache.get(mainChannelID).send({
+			content: str[lang].timeout.whoStarted.replace(
+				"${username}",
+				userMention(interaction.type ? interaction.user.id : interaction.author.id)
+			),
+			embeds: [createEmbed(user, votesNeeded)],
+			components: [createButtons()],
+		});
+
+		// Send confirmation message
 		await interaction.reply({
 			content: str[lang].timeout.startConfirmDiffChannel.replace(
 				"${channel}",
@@ -94,12 +109,9 @@ const handleTimeout = async (interaction, user) => {
 			),
 			ephemeral: true,
 		});
+	}
 
-	// Create vote embed and send it to main channel
-	let message = await interaction.client.channels.cache
-		.get(mainChannelID)
-		.send({ embeds: [createEmbed(user, votesNeeded)], components: [createButtons()] });
-
+	// Start collecting votes
 	updateVote(interaction, message, user, validation.voiceChannelID, usersBeingTimedOut);
 };
 

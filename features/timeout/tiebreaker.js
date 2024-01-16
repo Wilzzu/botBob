@@ -63,7 +63,7 @@ const createTieEmbed = (message, desc, votes, timeleft) => {
 		);
 };
 
-const createFinalEmbed = (message, user, votes, results) => {
+const createFinalEmbed = (message, desc, user, votes, results) => {
 	// Replace choices with emojis
 	let replaceMap = {
 		rock: "🗿",
@@ -105,6 +105,7 @@ const createFinalEmbed = (message, user, votes, results) => {
 	// Add 🏆 to winner team, show team choices, show player choices, show winner
 	return EmbedBuilder.from(message.embeds[0])
 		.setColor("#808080")
+		.setDescription(desc)
 		.setFields(
 			{
 				name: `${results?.choices ? results.choices.yesTeam : ""} ${
@@ -253,7 +254,7 @@ module.exports = function tiebreaker(
 
 			// Calculate winner and update embed with final result
 			const results = calculateWinner(votes);
-			const embed = createFinalEmbed(message, user, votes, results);
+			const embed = createFinalEmbed(message, desc, user, votes, results);
 
 			message.edit({ embeds: [embed], components: [] });
 
