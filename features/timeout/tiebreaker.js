@@ -35,6 +35,7 @@ const createTieButtons = () => {
 
 const createTieEmbed = (message, desc, votes, timeleft) => {
 	return EmbedBuilder.from(message.embeds[0])
+		.setColor("#0080FE")
 		.setDescription(desc)
 		.setFields(
 			{
@@ -184,7 +185,15 @@ const calculateWinner = (votes) => {
 	return { res: 3, choices: { yesTeam: yesMostChosen, noTeam: noMostChosen } };
 };
 
-module.exports = function tiebreaker(message, user, desc, votes) {
+module.exports = function tiebreaker(
+	message,
+	user,
+	desc,
+	votes,
+	usersBeingTimedOut,
+	addToDatabase,
+	voiceChannelID
+) {
 	let timeleft = timeout.rpsDuration;
 
 	// Update embed with tiebreaker info
@@ -243,10 +252,20 @@ module.exports = function tiebreaker(message, user, desc, votes) {
 			rpsCollector.stop();
 
 			// Calculate winner and update embed with final result
-			message.edit({
-				embeds: [createFinalEmbed(message, user, votes, calculateWinner(votes))],
-				components: [],
-			});
+			const results = calculateWinner(votes);
+			const embed = createFinalEmbed(message, user, votes, results);
+
+			message.edit({ embeds: [embed], components: [] });
+
+			// Add user to timeoutDb if vote passed after delay
+			if (results.res === 2) {
+				setTimeout(() => {
+					addToDatabase(user, voiceChannelID, message, embed);
+				}, timeout.rpsDelayBeforeTimingOut);
+			}
+
+			// Remove user from usersBeingTimedOut
+			usersBeingTimedOut.splice(usersBeingTimedOut.indexOf(user.id), 1);
 		} else {
 			// Update embed with new time and votes
 			message.edit({

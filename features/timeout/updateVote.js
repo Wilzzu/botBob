@@ -65,6 +65,19 @@ module.exports = function updateVote(
 		if (i.customId === "voteNo" && i.user.id === user.id)
 			return await i.reply({ content: str[lang].timeout.cantVoteNoOnYourself, ephemeral: true });
 
+		// Check if user is not in the same voice channel
+		if (
+			voiceChannelID &&
+			interaction.guild.members.cache.get(i.user.id).voice.channelId !== voiceChannelID
+		)
+			return await i.reply({
+				content: str[lang].timeout.notInVoiceChannel.replace(
+					"${voiceChannel}",
+					`https://discord.com/channels/${interaction.guild.id}/${voiceChannelID}`
+				),
+				ephemeral: true,
+			});
+
 		// Add user to votes and update embed
 		votes[i.customId].push({ id: i.user.id, username: i.user?.globalName || i.user?.username });
 		await i.update({ embeds: [createEmbed(message, votes, votesNeeded, timeLeft)] });
@@ -84,7 +97,7 @@ module.exports = function updateVote(
 		) {
 			clearInterval(interval);
 			voteCollector.stop();
-			endVote(message, votes, user, voiceChannelID, usersBeingTimedOut);
+			endVote(message, votes, votesNeeded, user, voiceChannelID, usersBeingTimedOut);
 		} else {
 			// Edit message with updated embed
 			message.edit({ embeds: [createEmbed(message, votes, votesNeeded, timeLeft)] });

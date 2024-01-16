@@ -1,6 +1,6 @@
 const { lang } = require("../../configs/config.json");
 const str = require("../../configs/languages.json");
-const timeoutDb = require("../../databases/timeoutDb.json");
+const fs = require("fs");
 
 // Return false if vote is not valid
 const getVoiceStates = (interaction, user) => {
@@ -22,19 +22,22 @@ module.exports = function validateVoteStart(interaction, user, usersBeingTimedOu
 	if (usersBeingTimedOut.includes(user?.id))
 		return { ...validation, reason: str[lang].timeout.voteAlreadyStarted };
 
+	const timeoutDb = JSON.parse(fs.readFileSync("./databases/timeoutDb.json", "utf-8"));
+
 	// If user is already timed out
-	if (timeoutDb.some((e) => e.id === user.id))
-		return { ...validation, reason: str[lang].timeout.alreadyOnTimeout };
+	if (timeoutDb[user.id]) return { ...validation, reason: str[lang].timeout.alreadyOnTimeout };
 
 	// If vote initiator is timed out
-	if (
-		timeoutDb.some((e) => e.id === (interaction.type ? interaction.user.id : interaction.author.id))
-	)
+	if (timeoutDb[interaction.type ? interaction.user.id : interaction.author.id])
 		return { ...validation, reason: str[lang].timeout.voterIsTimedOut, ephemeral: false };
 
 	// If vote initiator and target are not on the same voice channel
 	if (!getVoiceStates(interaction, user))
 		return { ...validation, reason: str[lang].timeout.userOnDifferentChannel };
+
+	// If user has higher role than bot
+	if (!interaction.guild.members.cache.get(user.id).bannable)
+		return { ...validation, reason: str[lang].timeout.userHasHigherRoleThanBot };
 
 	return {
 		valid: true,
