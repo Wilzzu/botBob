@@ -40,7 +40,8 @@ const createEmbed = (message, result, votes, votesNeeded, user) => {
 const calculateVotes = (votes, voiceChannelID) => {
 	if (!votes.voteYes.length) return { passed: false, desc: str[lang].timeout.notEnoughVotes };
 	if (votes.voteYes.length > votes.voteNo.length) {
-		if (votes.voteYes.length < 2) return { passed: false, desc: str[lang].timeout.notEnoughVotes };
+		if (votes.voteYes.length < (voiceChannelID ? 2 : 3))
+			return { passed: false, desc: str[lang].timeout.notEnoughVotes };
 		return {
 			passed: true,
 			desc: voiceChannelID ? str[lang].timeout.votePassed : str[lang].timeout.votePassedNotInVc,
@@ -70,7 +71,9 @@ const addToDatabase = (user, voiceChannelID, message, embed) => {
 		lastVoiceChannelId: voiceChannelID,
 		endTime,
 	};
-	fs.writeFileSync("./databases/timeoutDb.json", JSON.stringify(timeoutDb, null, 4));
+	fs.writeFileSync("./databases/timeoutDb.json", JSON.stringify(timeoutDb, null, 4), (err) => {
+		if (err) return console.log(err);
+	});
 
 	// Move user to timeout channel if possible
 	if (voiceChannelID && member.voice.channelId) {

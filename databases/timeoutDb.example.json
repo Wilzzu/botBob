@@ -1,9 +1,0 @@
-[
-	{
-		"id": "1",
-		"username": "user",
-		"roles": ["2", "3"],
-		"lastVoiceChannelId": "4",
-		"endTime": "5"
-	}
-]

@@ -1,7 +1,8 @@
 const axios = require("axios");
 const { rapidAPI } = require("../configs/config.json");
 
-module.exports = async function getAIResponse(prompt, id) {
+// Get AI response from RapidAPI and return it as a string
+module.exports = async function getAIResponse(prompt) {
 	const options = {
 		method: "POST",
 		url: rapidAPI.url,
@@ -16,14 +17,7 @@ module.exports = async function getAIResponse(prompt, id) {
 	try {
 		const response = await axios.request(options);
 		let message = response.data.response;
-		console.log(message);
-		// Replace [username] with mention of user
-		// message = message.replace(/\[username\]/g, userMention(id));
-		// Remove "AI: " and quotes from message
-		// message = message.replace(/^AI: /, "");
-		message = message.replace(/^"|"$/g, "");
-
-		return message;
+		return message.replace(/^"|"$/g, "");
 	} catch (error) {
 		console.error(error);
 		return false;
