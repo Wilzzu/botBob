@@ -17,6 +17,32 @@ const findUserById = (id, votes) => {
 	return null;
 };
 
+const validateVotes = (votes, invalidVotes, interaction, voiceChannelID) => {
+	// Invalidate user's vote if they left the voice channel
+	for (const key in votes) {
+		if (votes.hasOwnProperty(key)) {
+			votes[key].forEach((user) => {
+				if (interaction.guild.members.cache.get(user.id).voice.channelId !== voiceChannelID) {
+					invalidVotes[key].push(user);
+					votes[key].splice(votes[key].indexOf(user), 1);
+				}
+			});
+		}
+	}
+
+	// Add user's vote back if they rejoined the voice channel
+	for (const key in invalidVotes) {
+		if (invalidVotes.hasOwnProperty(key)) {
+			invalidVotes[key].forEach((user) => {
+				if (interaction.guild.members.cache.get(user.id).voice.channelId === voiceChannelID) {
+					votes[key].push(user);
+					invalidVotes[key].splice(invalidVotes[key].indexOf(user), 1);
+				}
+			});
+		}
+	}
+};
+
 // Create embed with updated vote count and time left
 const createEmbed = (message, votes, votesNeeded, timeLeft) => {
 	return EmbedBuilder.from(message.embeds[0])
@@ -51,6 +77,7 @@ module.exports = function updateVote(
 	let timeLeft = timeout.voteDuration;
 	let votesNeeded = getNeededVotes(interaction, voiceChannelID);
 	const votes = { voteYes: [], voteNo: [] };
+	const invalidVotes = { voteYes: [], voteNo: [] };
 
 	const voteCollector = message.createMessageComponentCollector({
 		componentType: ComponentType.Button,
@@ -58,7 +85,7 @@ module.exports = function updateVote(
 
 	voteCollector.on("collect", async (i) => {
 		// Check if user already voted
-		if (findUserById(i.user.id, votes))
+		if (findUserById(i.user.id, votes) || findUserById(i.user.id, invalidVotes))
 			return await i.reply({ content: str[lang].timeout.alreadyVoted, ephemeral: true });
 
 		// Check if user is trying to vote no on themselves
@@ -80,11 +107,17 @@ module.exports = function updateVote(
 
 		// Add user to votes and update embed
 		votes[i.customId].push({ id: i.user.id, username: i.user?.globalName || i.user?.username });
-		await i.update({ embeds: [createEmbed(message, votes, votesNeeded, timeLeft)] });
+		validateVotes(votes, invalidVotes, interaction, voiceChannelID);
+		await i.update({
+			embeds: [createEmbed(message, votes, getNeededVotes(interaction, voiceChannelID), timeLeft)],
+		});
 	});
 
 	const interval = setInterval(() => {
 		timeLeft -= 2;
+
+		// Validate votes
+		validateVotes(votes, invalidVotes, interaction, voiceChannelID);
 
 		// Get needed votes
 		votesNeeded = getNeededVotes(interaction, voiceChannelID);
