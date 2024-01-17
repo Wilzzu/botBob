@@ -1,6 +1,5 @@
 const axios = require("axios");
 const { rapidAPI } = require("../configs/config.json");
-const { userMention } = require("discord.js");
 
 module.exports = async function getAIResponse(prompt, id) {
 	const options = {
@@ -19,7 +18,7 @@ module.exports = async function getAIResponse(prompt, id) {
 		let message = response.data.response;
 		console.log(message);
 		// Replace [username] with mention of user
-		message = message.replace(/\[username\]/g, userMention(id));
+		// message = message.replace(/\[username\]/g, userMention(id));
 		// Remove "AI: " and quotes from message
 		// message = message.replace(/^AI: /, "");
 		message = message.replace(/^"|"$/g, "");

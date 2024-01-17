@@ -77,7 +77,8 @@ const handleTimeout = async (interaction, user) => {
 		votesNeeded = getNeededVotes(interaction, validation.voiceChannelID);
 
 	// Generate new response with AI if needed
-	// if (aiResponses.length < usersBeingTimedOut.length)
+	if (aiResponses.length < usersBeingTimedOut.length)
+		aiResponses.push("Hey, [username] just got timed out! " + aiResponses.length);
 	// 	aiResponses = await getAIResponse(str[lang].ai.timeout, user.id);
 
 	// Send vote embed

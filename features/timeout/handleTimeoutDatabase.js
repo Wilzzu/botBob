@@ -51,6 +51,9 @@ const updateEmbed = (message, embed, endTime, footer, user) => {
 module.exports = function handleTimeoutDatabase(user, message, embed, endTime) {
 	updateEmbed(message, embed, endTime, str[lang].timeout.timeoutLeft, user);
 
+	// Send AI response
+	// message.client.channels.cache.get(mainChannelID).send(aiResponse);
+
 	// Update embed time left every 10 seconds
 	const interval = setInterval(() => {
 		if (endTime - Date.now() <= 0) clearInterval(interval);

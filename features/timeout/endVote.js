@@ -134,9 +134,6 @@ module.exports = function endVote(
 		usersBeingTimedOut.splice(usersBeingTimedOut.indexOf(user.id), 1);
 	}
 
-	// Remove user from usersBeingTimedOut
-	// Add user to timeoutDB if vote passed
-	// Update embed with final result
 	// Send AI response if vote passed, and if one is available
 	// Remove sent AI response from aiResponses
 
