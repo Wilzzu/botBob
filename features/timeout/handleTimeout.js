@@ -16,10 +16,32 @@ const {
 const validateVoteStart = require("./validateVoteStart");
 const updateVote = require("./updateVote");
 const getNeededVotes = require("./getNeededVotes");
+const fs = require("fs");
 
 // Globals
 let usersBeingTimedOut = [];
-let aiResponses = [];
+let generatingAIResponse = false;
+
+const addAIResponse = async () => {
+	// Read current responses
+	let aiResponses = JSON.parse(fs.readFileSync("./databases/aiResponses.json", "utf-8"));
+
+	// Only generate new response if needed
+	if (aiResponses?.length >= timeout.reserveAIResponses || generatingAIResponse) return;
+	generatingAIResponse = true;
+
+	// Generate needed amount of responses and add them to the array
+	for (i = 0; i < timeout.reserveAIResponses - aiResponses?.length; i++) {
+		const response = await getAIResponse(str[lang].ai.timeout);
+		if (!response) return;
+		aiResponses.push(response);
+	}
+
+	fs.writeFileSync("./databases/aiResponses.json", JSON.stringify(aiResponses), (err) => {
+		if (err) return console.log(err);
+	});
+	generatingAIResponse = false;
+};
 
 const createButtons = () => {
 	const voteYesButton = new ButtonBuilder()
@@ -77,9 +99,7 @@ const handleTimeout = async (interaction, user) => {
 		votesNeeded = getNeededVotes(interaction, validation.voiceChannelID);
 
 	// Generate new response with AI if needed
-	if (aiResponses.length < usersBeingTimedOut.length)
-		aiResponses.push("Hey, [username] just got timed out! " + aiResponses.length);
-	// 	aiResponses = await getAIResponse(str[lang].ai.timeout, user.id);
+	if (timeout.aiResponses) addAIResponse();
 
 	// Send vote embed
 	let message = null;

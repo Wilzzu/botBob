@@ -1,7 +1,49 @@
-const { EmbedBuilder } = require("discord.js");
-const { lang } = require("../../configs/config.json");
+const { EmbedBuilder, userMention } = require("discord.js");
+const {
+	lang,
+	mainChannelID,
+	features: { timeout },
+} = require("../../configs/config.json");
 const str = require("../../configs/languages.json");
 const fs = require("fs");
+const getAIResponse = require("../../utils/getAIResponse");
+
+// Create new embed for AI response
+const createAIEmbed = (message, user, response) => {
+	return new EmbedBuilder()
+		.setColor("#2B2D31")
+		.setAuthor({
+			name: message.client.user.username,
+			iconURL: message.client.user.displayAvatarURL(),
+		})
+		.setDescription(
+			`**${response
+				.replace(/\[username\]/g, userMention(user.id))
+				.replace(/\[käyttäjänimi\]/g, userMention(user.id))}**`
+		);
+};
+
+const sendAIResponse = async (message, user) => {
+	// Read current responses
+	let aiResponses = JSON.parse(fs.readFileSync("./databases/aiResponses.json", "utf-8"));
+
+	// Get first response and remove it from the array
+	if (!aiResponses?.length) return console.log("No AI responses found");
+	const response = aiResponses.shift();
+
+	// Write remaining responses to database
+	fs.writeFileSync("./databases/aiResponses.json", JSON.stringify(aiResponses), (err) => {
+		if (err) return console.log(err);
+	});
+
+	// Send AI response with a little delay
+	const mainChannel = message.client.channels.cache.get(mainChannelID);
+	mainChannel.sendTyping();
+	setTimeout(
+		async () => await mainChannel.send({ embeds: [createAIEmbed(message, user, response)] }),
+		1500
+	);
+};
 
 const handleTimeoutEnd = (user, message) => {
 	let timeoutDb = JSON.parse(fs.readFileSync("./databases/timeoutDb.json", "utf-8"));
@@ -28,7 +70,9 @@ const handleTimeoutEnd = (user, message) => {
 
 	// Remove user from timeoutDb
 	delete timeoutDb[user.id];
-	fs.writeFileSync("./databases/timeoutDb.json", JSON.stringify(timeoutDb, null, 4));
+	fs.writeFileSync("./databases/timeoutDb.json", JSON.stringify(timeoutDb, null, 4), (err) => {
+		if (err) return console.log(err);
+	});
 };
 
 const updateEmbed = (message, embed, endTime, footer, user) => {
@@ -52,7 +96,7 @@ module.exports = function handleTimeoutDatabase(user, message, embed, endTime) {
 	updateEmbed(message, embed, endTime, str[lang].timeout.timeoutLeft, user);
 
 	// Send AI response
-	// message.client.channels.cache.get(mainChannelID).send(aiResponse);
+	if (timeout.aiResponses) sendAIResponse(message, user);
 
 	// Update embed time left every 10 seconds
 	const interval = setInterval(() => {

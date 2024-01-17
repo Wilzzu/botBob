@@ -18,6 +18,7 @@ const findUserById = (id, votes) => {
 };
 
 const validateVotes = (votes, invalidVotes, interaction, voiceChannelID) => {
+	if (!voiceChannelID) return;
 	// Invalidate user's vote if they left the voice channel
 	for (const key in votes) {
 		if (votes.hasOwnProperty(key)) {

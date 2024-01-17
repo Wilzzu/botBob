@@ -3,5 +3,4 @@ config.json
 config_production.json
 languages.json
 commands_config.json
-timeoutDb.json
 .env
