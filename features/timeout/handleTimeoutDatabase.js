@@ -6,7 +6,8 @@ const {
 } = require("../../configs/config.json");
 const str = require("../../configs/languages.json");
 const fs = require("fs");
-const getAIResponse = require("../../utils/getAIResponse");
+const { addTimeoutToMongoDB } = require("../../utils/mongoose");
+const generateReserveResponses = require("./generateReserveResponses");
 
 // Create new embed for AI response
 const createAIEmbed = (message, user, response) => {
@@ -43,6 +44,9 @@ const sendAIResponse = async (message, user) => {
 		async () => await mainChannel.send({ embeds: [createAIEmbed(message, user, response)] }),
 		1500
 	);
+
+	// Generate new responses if needed
+	generateReserveResponses();
 };
 
 const handleTimeoutEnd = (user, message) => {
@@ -93,7 +97,16 @@ const updateEmbed = (message, embed, endTime, footer, user) => {
 };
 
 module.exports = function handleTimeoutDatabase(user, message, embed, endTime) {
+	// Update embed
 	updateEmbed(message, embed, endTime, str[lang].timeout.timeoutLeft, user);
+
+	// Add user to mongoDB
+	let username = user?.globalName || user?.username;
+	addTimeoutToMongoDB({
+		id: user.id,
+		name: username.toUpperCase(),
+		avatar: user.displayAvatarURL(),
+	});
 
 	// Send AI response
 	if (timeout.aiResponses) sendAIResponse(message, user);
