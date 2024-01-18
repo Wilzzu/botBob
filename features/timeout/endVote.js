@@ -1,5 +1,6 @@
 const { EmbedBuilder } = require("discord.js");
 const {
+	timeoutChannelID,
 	features: { timeout },
 	lang,
 } = require("../../configs/config.json");
@@ -79,7 +80,7 @@ const addToDatabase = (user, voiceChannelID, message, embed) => {
 	if (voiceChannelID && member.voice.channelId) {
 		try {
 			member.voice.setChannel(
-				message.guild.channels.cache.get(timeout.timeoutChannelID),
+				message.guild.channels.cache.get(timeoutChannelID),
 				str[lang].timeout.movedUserToTimeout
 			);
 		} catch (error) {

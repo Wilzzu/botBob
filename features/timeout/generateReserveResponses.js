@@ -21,7 +21,7 @@ module.exports = async function generateReserveResponses() {
 	for (i = 0; i < amountNeeded; i++) {
 		// Generate response
 		const response = await getAIResponse(str[lang].ai.timeout);
-		if (!response) return;
+		if (!response) break;
 
 		// Get the latest responses and push the new response to it
 		let latest = JSON.parse(fs.readFileSync("./databases/aiResponses.json", "utf-8"));

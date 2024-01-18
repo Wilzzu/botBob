@@ -1,8 +1,8 @@
 const { Events } = require("discord.js");
-const duplicateMessage = require("../actions/duplicateMessage");
-const sendCustomResponse = require("../actions/sendCustomResponse");
-const executeChatCommand = require("../actions/executeChatCommand");
-const respondToSpecificWord = require("../actions/respondToSpecificWord");
+const executeChatCommand = require("../utils/executeChatCommand");
+const duplicateMessage = require("../features/duplicateMessage");
+const respondToSpecificWord = require("../features/respondToSpecificWord");
+const sendCustomResponse = require("../features/sendCustomResponse");
 
 module.exports = {
 	name: Events.MessageCreate,

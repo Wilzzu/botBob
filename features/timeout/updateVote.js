@@ -1,4 +1,4 @@
-const { EmbedBuilder, ComponentType } = require("discord.js");
+const { EmbedBuilder, ComponentType, channelLink } = require("discord.js");
 const {
 	features: { timeout },
 	lang,
@@ -101,7 +101,7 @@ module.exports = function updateVote(
 			return await i.reply({
 				content: str[lang].timeout.notInVoiceChannel.replace(
 					"${voiceChannel}",
-					`https://discord.com/channels/${interaction.guild.id}/${voiceChannelID}`
+					channelLink(voiceChannelID)
 				),
 				ephemeral: true,
 			});
