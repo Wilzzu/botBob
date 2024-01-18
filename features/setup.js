@@ -11,6 +11,7 @@ const config = require("../configs/config.json");
 const str = require("../configs/languages.json");
 const fs = require("fs");
 
+// Update config values with new ones
 const updateConfigFile = (key, value) => {
 	config[key] = value;
 	fs.writeFile("./configs/config.json", JSON.stringify(config, null, 4), (err) => {
@@ -18,6 +19,7 @@ const updateConfigFile = (key, value) => {
 	});
 };
 
+// Create channel select menu
 const channelSelect = (id, helpText) => {
 	const channelSelect = new ChannelSelectMenuBuilder()
 		.setCustomId(id)
@@ -26,6 +28,7 @@ const channelSelect = (id, helpText) => {
 	return new ActionRowBuilder().addComponents(channelSelect);
 };
 
+// Create channel setup buttons
 const createButton = () => {
 	const mainBtn = new ButtonBuilder()
 		.setCustomId("mainChannel")
@@ -54,6 +57,7 @@ const createButton = () => {
 	return new ActionRowBuilder().addComponents(mainBtn, debtBtn, timeoutBtn);
 };
 
+// Create setup embed
 const createEmbed = (client) => {
 	// Channel texts
 	let main = config.mainChannelID
@@ -65,6 +69,8 @@ const createEmbed = (client) => {
 	let timeout = config.timeoutChannelID
 		? `\n**⌛ ${str[config.lang].setup.timeoutChannel}:** ${channelLink(config.timeoutChannelID)}`
 		: "";
+
+	// Create embed
 	return new EmbedBuilder()
 		.setColor("#26FF5B")
 		.setTitle(str[config.lang].setup.embedTitle.replace("${username}", client.user.username))
@@ -79,13 +85,17 @@ const createEmbed = (client) => {
 
 module.exports = async function setup(guild, client, command) {
 	if (!guild) return console.error("Couldn't get server info");
+
+	// Update guildID in config only when bot joins the server
 	if (!command) updateConfigFile("guildID", guild.id);
 
+	// Get user who invited the bot
 	const fetchedLogs = await guild.fetchAuditLogs();
 	const inviter = fetchedLogs.entries.find(
 		(entry) => entry.actionType === "Create" && entry.targetId === client.user.id
 	).executor;
 
+	// Send setup message
 	let message;
 	if (command)
 		message = await command.reply({
@@ -93,6 +103,7 @@ module.exports = async function setup(guild, client, command) {
 			components: [createButton()],
 		});
 	else {
+		// Find the first channel where bot can send messages
 		let channel = guild.channels.cache.find(
 			(c) => c.type === 0 && c.permissionsFor(guild.members.me).has("SendMessages")
 		);
@@ -102,14 +113,18 @@ module.exports = async function setup(guild, client, command) {
 		});
 	}
 
+	// Create button collector
 	const buttonCollector = message.createMessageComponentCollector({
 		componentType: ComponentType.Button,
 	});
 
+	// Handle button clicks
 	buttonCollector.on("collect", async (i) => {
+		// Check if user is the one who invited the bot
 		if (i.user.id !== inviter.id)
 			return await i.reply({ content: str[config.lang].setup.notAuthorized, ephemeral: true });
 
+		// Create channel select menu for the selected button's channel
 		const helpText = str[config.lang].setup.channelSelectHelp.replace(
 			"${channel}",
 			str[config.lang].setup[i.customId]
@@ -118,18 +133,23 @@ module.exports = async function setup(guild, client, command) {
 			components: [channelSelect(i.customId, helpText)],
 		});
 
+		// Handle channel select menu
 		const collectorFilter = (c) => c.user.id === i.user.id;
 		try {
 			const selection = await response.awaitMessageComponent({
 				filter: collectorFilter,
 				time: 120_000,
 			});
+			// Update config file with selected channel's ID
 			updateConfigFile(i.customId + "ID", selection.channels.first().id);
+
+			// Update setup emved with new values and add the buttons back
 			await selection.update({
 				embeds: [createEmbed(client)],
 				components: [createButton()],
 			});
 		} catch (e) {
+			// If user doesn't select a channel in 2 minutes, add the buttons back
 			await i.message.edit({
 				embeds: [createEmbed(client)],
 				components: [createButton()],
