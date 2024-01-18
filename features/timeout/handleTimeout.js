@@ -11,6 +11,7 @@ const {
 	ButtonBuilder,
 	ActionRowBuilder,
 	ButtonStyle,
+	channelLink,
 } = require("discord.js");
 const validateVoteStart = require("./validateVoteStart");
 const updateVote = require("./updateVote");
@@ -103,7 +104,7 @@ const handleTimeout = async (interaction, user) => {
 		await interaction.reply({
 			content: str[lang].timeout.startConfirmDiffChannel.replace(
 				"${channel}",
-				`https://discord.com/channels/${guildID}/${mainChannelID}`
+				channelLink(mainChannelID)
 			),
 			ephemeral: true,
 		});
