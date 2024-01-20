@@ -107,6 +107,9 @@ module.exports = async function setup(guild, client, command) {
 		let channel = guild.channels.cache.find(
 			(c) => c.type === 0 && c.permissionsFor(guild.members.me).has("SendMessages")
 		);
+		if (!channel) {
+			return console.error("Couldn't find a channel to send the initial setup message to!");
+		}
 		message = await channel.send({
 			embeds: [createEmbed(client)],
 			components: [createButton()],
