@@ -24,7 +24,7 @@ const placements = {
 module.exports = async function createDebtEmbed(guild) {
 	// Fetch all members so everyones name is available
 	await guild.members.fetch();
-	let description = str[lang].debt.description + "```asciidoc\n";
+	let description = str[lang].debt.description + "```prolog\n";
 
 	// Sort database and go through each user
 	database.sort((a, b) => b.amount - a.amount);
@@ -33,22 +33,22 @@ module.exports = async function createDebtEmbed(guild) {
 		const userData = guild.members.cache.get(user.id);
 		const username =
 			userData?.user?.globalName || userData?.user?.username || str[lang].debt.noUserFound;
-		const title = `${placements[i + 1] || i + 1 + "."} ${username} ${str[lang].debt.emoji}${
-			user.amount
-		}`;
+		const title = `''   ${placements[i + 1] || i + 1 + "."} ${username.toUpperCase()} - ${
+			str[lang].debt.emoji
+		}${user.amount}`;
 
 		// Create list of debts for each user
 		let debtValues = "";
 		user.debts.sort((a, b) => b.amount - a.amount);
-		user.debts.forEach((debt) => {
+		user.debts.forEach((debt, index) => {
 			const receiver = guild.members.cache.get(debt.id);
 			const name =
 				receiver?.user?.globalName || receiver?.user?.username || str[lang].debt.noUserFound;
-			debtValues += `    🔸 ${name} [${debt.amount}]\n`;
+			debtValues += `'${index ? "" : " "}      🔸 [${debt.amount}] ${name}\n'`;
 		});
 
 		// Lastly add the user to the embed
-		description += `= ${title} =\n${debtValues}\n`;
+		description += `${title}\n${debtValues}\n`;
 	});
 
 	// Create embed with the debt info
