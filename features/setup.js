@@ -10,6 +10,7 @@ const {
 const config = require("../configs/config.json");
 const str = require("../configs/languages.json");
 const fs = require("fs");
+const createDebtEmbed = require("./debt/createDebtEmbed");
 
 // Update config values with new ones
 const updateConfigFile = (key, value) => {
@@ -17,6 +18,19 @@ const updateConfigFile = (key, value) => {
 	fs.writeFile("./configs/config.json", JSON.stringify(config, null, 4), (err) => {
 		if (err) console.log(err);
 	});
+};
+
+const checkForDebtEmbed = async (client, guild, channel) => {
+	// Check if debt embed already exist on the channel
+	if (
+		config.embedID &&
+		guild.channels.cache.get(channel.id).messages.cache.get(config.debt.embedID)
+	)
+		return;
+
+	// Create new debt embed
+	const newEmbed = await channel.send(createDebtEmbed(guild));
+	updateConfigFile("debtEmbedID", newEmbed.id);
 };
 
 // Create channel select menu
@@ -89,6 +103,15 @@ module.exports = async function setup(guild, client, command) {
 	// Update guildID in config only when bot joins the server
 	if (!command) updateConfigFile("guildID", guild.id);
 
+	// If debt channel is already set and the embed doesn't exist, send a new one
+	if (config.debtChannelID && !config.debtEmbedID && !command) {
+		const debtChannel = guild.channels.cache.get(config.debtChannelID);
+		if (!debtChannel) return console.error("Couldn't find the debt channel!");
+
+		const newEmbed = await debtChannel.send(createDebtEmbed(client));
+		updateConfigFile("debtEmbedID", newEmbed.id);
+	}
+
 	// Get user who invited the bot
 	const fetchedLogs = await guild.fetchAuditLogs();
 	const inviter = fetchedLogs.entries.find(
@@ -145,6 +168,10 @@ module.exports = async function setup(guild, client, command) {
 			});
 			// Update config file with selected channel's ID
 			updateConfigFile(i.customId + "ID", selection.channels.first().id);
+
+			// Create new debt embed if there isn't one on the channel already
+			if (i.customId === "debtChannel")
+				checkForDebtEmbed(client, guild, selection.channels.first());
 
 			// Update setup emved with new values and add the buttons back
 			await selection.update({
