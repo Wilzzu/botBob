@@ -73,7 +73,9 @@ module.exports = function updateVote(
 	message,
 	user,
 	voiceChannelID,
-	usersBeingTimedOut
+	usersBeingTimedOut,
+	timeoutChannelID,
+	mainChannelID
 ) {
 	let timeLeft = timeout.voteDuration;
 	let votesNeeded = getNeededVotes(interaction, voiceChannelID);
@@ -131,7 +133,16 @@ module.exports = function updateVote(
 		) {
 			clearInterval(interval);
 			voteCollector.stop();
-			endVote(message, votes, votesNeeded, user, voiceChannelID, usersBeingTimedOut);
+			endVote(
+				message,
+				votes,
+				votesNeeded,
+				user,
+				voiceChannelID,
+				timeoutChannelID,
+				mainChannelID,
+				usersBeingTimedOut
+			);
 		} else {
 			// Edit message with updated embed
 			message.edit({ embeds: [createEmbed(message, votes, votesNeeded, timeLeft)] });

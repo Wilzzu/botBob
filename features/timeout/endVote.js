@@ -1,6 +1,5 @@
 const { EmbedBuilder } = require("discord.js");
 const {
-	timeoutChannelID,
 	features: { timeout },
 	lang,
 } = require("../../configs/config.json");
@@ -49,13 +48,16 @@ const calculateVotes = (votes, voiceChannelID) => {
 		};
 	}
 
-	if (votes.voteYes.length === votes.voteNo.length)
+	if (votes.voteYes.length === votes.voteNo.length) {
+		if (votes.voteYes.length < 2 && votes.voteNo.length < 2)
+			return { passed: false, desc: str[lang].timeout.notEnoughVotes };
 		return { desc: str[lang].timeout.tie, tie: true };
+	}
 
 	return { passed: false, desc: str[lang].timeout.voteFailed };
 };
 
-const addToDatabase = (user, voiceChannelID, message, embed) => {
+const addToDatabase = (user, voiceChannelID, timeoutChannelID, mainChannelID, message, embed) => {
 	// Get member's roles
 	const member = message.guild.members.cache.get(user.id);
 	const roles = member.roles.cache.map((e) => e.id);
@@ -98,7 +100,7 @@ const addToDatabase = (user, voiceChannelID, message, embed) => {
 	}
 
 	// Update embed every 10 seconds
-	handleTimeoutDatabase(user, message, embed, endTime);
+	handleTimeoutDatabase(user, message, embed, endTime, mainChannelID);
 
 	// TODO:
 	// To track how many times user has been timed out
@@ -111,6 +113,8 @@ module.exports = function endVote(
 	votesNeeded,
 	user,
 	voiceChannelID,
+	timeoutChannelID,
+	mainChannelID,
 	usersBeingTimedOut
 ) {
 	let description = str[lang].timeout.embedDescEnd;
@@ -124,14 +128,17 @@ module.exports = function endVote(
 			votes,
 			usersBeingTimedOut,
 			addToDatabase,
-			voiceChannelID
+			voiceChannelID,
+			timeoutChannelID,
+			mainChannelID
 		);
 	else {
 		// Update embed with final result
 		const embed = createEmbed(message, vote.desc, votes, votesNeeded, user);
 
 		// Add user to timeoutDb if vote passed, else remove buttons and update embed
-		if (vote.passed) addToDatabase(user, voiceChannelID, message, embed);
+		if (vote.passed)
+			addToDatabase(user, voiceChannelID, timeoutChannelID, mainChannelID, message, embed);
 		else message.edit({ embeds: [embed], components: [] });
 
 		// Remove user from usersBeingTimedOut

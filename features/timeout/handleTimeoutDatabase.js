@@ -1,7 +1,7 @@
 const { EmbedBuilder, userMention } = require("discord.js");
 const {
 	lang,
-	mainChannelID,
+	useMongoDB,
 	features: { timeout },
 } = require("../../configs/config.json");
 const str = require("../../configs/languages.json");
@@ -24,7 +24,7 @@ const createAIEmbed = (message, user, response) => {
 		);
 };
 
-const sendAIResponse = async (message, user) => {
+const sendAIResponse = async (message, user, mainChannelID) => {
 	// Read current responses
 	let aiResponses = JSON.parse(fs.readFileSync("./databases/aiResponses.json", "utf-8"));
 
@@ -96,20 +96,22 @@ const updateEmbed = (message, embed, endTime, footer, user) => {
 	message.edit({ embeds: [embedWithFooter], components: [] });
 };
 
-module.exports = function handleTimeoutDatabase(user, message, embed, endTime) {
+module.exports = function handleTimeoutDatabase(user, message, embed, endTime, mainChannelID) {
 	// Update embed
 	updateEmbed(message, embed, endTime, str[lang].timeout.timeoutLeft, user);
 
 	// Add user to mongoDB
-	let username = user?.globalName || user?.username;
-	addTimeoutToMongoDB({
-		id: user.id,
-		name: username.toUpperCase(),
-		avatar: user.displayAvatarURL(),
-	});
+	if (useMongoDB) {
+		let username = user?.globalName || user?.username;
+		addTimeoutToMongoDB({
+			id: user.id,
+			name: username.toUpperCase(),
+			avatar: user.displayAvatarURL(),
+		});
+	}
 
 	// Send AI response
-	if (timeout.aiResponses) sendAIResponse(message, user);
+	if (timeout.aiResponses) sendAIResponse(message, user, mainChannelID);
 
 	// Update embed time left every 10 seconds
 	const interval = setInterval(() => {

@@ -193,7 +193,9 @@ module.exports = function tiebreaker(
 	votes,
 	usersBeingTimedOut,
 	addToDatabase,
-	voiceChannelID
+	voiceChannelID,
+	timeoutChannelID,
+	mainChannelID
 ) {
 	let timeleft = timeout.rpsDuration;
 
@@ -261,7 +263,7 @@ module.exports = function tiebreaker(
 			// Add user to timeoutDb if vote passed after delay
 			if (results.res === 2) {
 				setTimeout(() => {
-					addToDatabase(user, voiceChannelID, message, embed);
+					addToDatabase(user, voiceChannelID, timeoutChannelID, mainChannelID, message, embed);
 				}, timeout.rpsDelayBeforeTimingOut);
 			}
 
