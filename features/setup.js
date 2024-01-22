@@ -117,6 +117,7 @@ module.exports = async function setup(guild, client, command) {
 	const inviter = fetchedLogs.entries.find(
 		(entry) => entry.actionType === "Create" && entry.targetId === client.user.id
 	).executor;
+	if (inviter && !config.mainAdmin) updateConfigFile("mainAdmin", inviter.id);
 
 	// Send setup message
 	let message;
@@ -147,7 +148,7 @@ module.exports = async function setup(guild, client, command) {
 	// Handle button clicks
 	buttonCollector.on("collect", async (i) => {
 		// Check if user is the one who invited the bot
-		if (i.user.id !== inviter.id)
+		if (i.user.id !== config.mainAdmin)
 			return await i.reply({ content: str[config.lang].setup.notAuthorized, ephemeral: true });
 
 		// Create channel select menu for the selected button's channel
