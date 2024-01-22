@@ -2,6 +2,7 @@ const { SlashCommandBuilder } = require("discord.js");
 const { lang } = require("../../configs/config.json");
 const str = require("../../configs/languages.json");
 const { handleTimeout } = require("../../features/timeout/handleTimeout");
+const fs = require("fs");
 
 module.exports = {
 	data: new SlashCommandBuilder()
@@ -32,6 +33,20 @@ module.exports = {
 				ephemeral: true,
 			});
 
-		handleTimeout(interaction, user);
+		// Check if channels exist
+		const config = JSON.parse(fs.readFileSync("./configs/config.json", "utf8"));
+		if (!config.mainChannelID)
+			return await interaction.reply({
+				content: str[lang].commands.timeout.errors.noMainChannel,
+				ephemeral: true,
+			});
+		if (!config.timeoutChannelID)
+			return await interaction.reply({
+				content: str[lang].commands.timeout.errors.noTimeoutChannel,
+				ephemeral: true,
+			});
+
+		// Start timeout vote
+		handleTimeout(interaction, user, config.mainChannelID, config.timeoutChannelID);
 	},
 };

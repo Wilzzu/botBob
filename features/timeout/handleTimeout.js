@@ -1,6 +1,4 @@
 const {
-	guildID,
-	mainChannelID,
 	lang,
 	features: { timeout },
 } = require("../../configs/config.json");
@@ -59,7 +57,7 @@ const createEmbed = (user, votesNeeded) => {
 		.setThumbnail(user.displayAvatarURL());
 };
 
-const handleTimeout = async (interaction, user) => {
+const handleTimeout = async (interaction, user, mainChannelID, timeoutChannelID) => {
 	// Check if vote should be started
 	let validation = validateVoteStart(interaction, user, usersBeingTimedOut);
 	if (!validation.valid)
@@ -111,7 +109,15 @@ const handleTimeout = async (interaction, user) => {
 	}
 
 	// Start collecting votes
-	updateVote(interaction, message, user, validation.voiceChannelID, usersBeingTimedOut);
+	updateVote(
+		interaction,
+		message,
+		user,
+		validation.voiceChannelID,
+		usersBeingTimedOut,
+		timeoutChannelID,
+		mainChannelID
+	);
 };
 
 module.exports = {

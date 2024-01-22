@@ -2,6 +2,7 @@ const { SlashCommandBuilder } = require("discord.js");
 const { lang } = require("../../configs/config.json");
 const str = require("../../configs/languages.json");
 const handleDebt = require("../../features/debt/handleDebt");
+const fs = require("fs");
 
 module.exports = {
 	data: new SlashCommandBuilder()
@@ -60,9 +61,11 @@ module.exports = {
 				ephemeral: true,
 			});
 		}
-		if (amount <= 0) {
+
+		const config = JSON.parse(fs.readFileSync("./configs/config.json", "utf-8"));
+		if (!config.debtChannelID) {
 			return await interaction.reply({
-				content: str[lang].commands.debt.errors.invalidAmount,
+				content: str[lang].commands.debt.errors.noChannel,
 				ephemeral: true,
 			});
 		}

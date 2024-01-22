@@ -10,7 +10,7 @@ const {
 const config = require("../configs/config.json");
 const str = require("../configs/languages.json");
 const fs = require("fs");
-const createDebtEmbed = require("./debt/createDebtEmbed");
+const { createDebtEmbed } = require("./debt/modifyDebtEmbed");
 
 // Update config values with new ones
 const updateConfigFile = (key, value) => {
@@ -20,7 +20,7 @@ const updateConfigFile = (key, value) => {
 	});
 };
 
-const checkForDebtEmbed = async (client, guild, channel) => {
+const checkForDebtEmbed = async (guild, channel) => {
 	// Check if debt embed already exist on the channel
 	if (
 		config.embedID &&
@@ -29,7 +29,7 @@ const checkForDebtEmbed = async (client, guild, channel) => {
 		return;
 
 	// Create new debt embed
-	const newEmbed = await channel.send(createDebtEmbed(guild));
+	const newEmbed = await channel.send({ embeds: [await createDebtEmbed(guild)] });
 	updateConfigFile("debtEmbedID", newEmbed.id);
 };
 
@@ -108,7 +108,7 @@ module.exports = async function setup(guild, client, command) {
 		const debtChannel = guild.channels.cache.get(config.debtChannelID);
 		if (!debtChannel) return console.error("Couldn't find the debt channel!");
 
-		const newEmbed = await debtChannel.send(createDebtEmbed(client));
+		const newEmbed = await debtChannel.send({ embeds: [await createDebtEmbed(client)] });
 		updateConfigFile("debtEmbedID", newEmbed.id);
 	}
 
@@ -170,8 +170,7 @@ module.exports = async function setup(guild, client, command) {
 			updateConfigFile(i.customId + "ID", selection.channels.first().id);
 
 			// Create new debt embed if there isn't one on the channel already
-			if (i.customId === "debtChannel")
-				checkForDebtEmbed(client, guild, selection.channels.first());
+			if (i.customId === "debtChannel") checkForDebtEmbed(guild, selection.channels.first());
 
 			// Update setup emved with new values and add the buttons back
 			await selection.update({
