@@ -2,6 +2,7 @@ const fs = require("fs");
 const { updateDebtEmbed } = require("./modifyDebtEmbed");
 const { lang } = require("../../configs/config.json");
 const str = require("../../configs/languages.json");
+const sendConfirmation = require("./sendConfirmation");
 
 // Create string for confirmation message
 const confirmationContent = (from, to, amount) => {
@@ -32,9 +33,10 @@ const updateAndRespond = (db, interaction, from, to, amount) => {
 		if (err) return respond(interaction, str[lang].commands.debt.errUpdatingDebts);
 	});
 
-	// Update embed and respond to interaction
+	// Update embed, respond to interaction and send a confirmation
 	updateDebtEmbed(db, interaction.guild);
 	respond(interaction, confirmationContent(from, to, amount));
+	sendConfirmation(interaction, from, to, amount);
 };
 
 module.exports = function handleDebt(i, from, to, amount) {

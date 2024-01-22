@@ -44,9 +44,9 @@ module.exports = {
 		}
 
 		// Get values
-		let from = interaction.options.getUser(str[lang].commands.debt.from);
-		let to = interaction.options.getUser(str[lang].commands.debt.to);
-		let amount = interaction.options.getNumber(str[lang].commands.debt.amount);
+		const from = interaction.options.getUser(str[lang].commands.debt.from);
+		const to = interaction.options.getUser(str[lang].commands.debt.to);
+		const amount = interaction.options.getNumber(str[lang].commands.debt.amount);
 
 		// Check if fields are valid
 		if (from.bot || to.bot) {
@@ -63,6 +63,15 @@ module.exports = {
 		}
 
 		const config = JSON.parse(fs.readFileSync("./configs/config.json", "utf-8"));
+		// Check if user is admin
+		if (!config.admins.includes(interaction.user.id) && config.mainAdmin !== interaction.user.id) {
+			return await interaction.reply({
+				content: str[lang].commands.debt.errors.notAdmin,
+				ephemeral: true,
+			});
+		}
+
+		// Check if debt channel is set
 		if (!config.debtChannelID) {
 			return await interaction.reply({
 				content: str[lang].commands.debt.errors.noChannel,

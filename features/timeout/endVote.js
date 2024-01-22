@@ -145,9 +145,6 @@ module.exports = function endVote(
 		usersBeingTimedOut.splice(usersBeingTimedOut.indexOf(user.id), 1);
 	}
 
-	// Send AI response if vote passed, and if one is available
-	// Remove sent AI response from aiResponses
-
 	// Maybe add fun modifiers that have a chance to trigger,
 	// like 1% chance to timeout if not enough votes, or 10% chance to timeout the initiator if vote fails
 };
