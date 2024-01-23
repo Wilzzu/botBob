@@ -5,6 +5,7 @@ const {
 } = require("../configs/config.json");
 const { connectMongoose } = require("../utils/mongoose");
 const generateReserveResponses = require("../features/timeout/generateReserveResponses");
+const setActivity = require("../features/setActivity");
 
 module.exports = {
 	name: Events.ClientReady,
@@ -13,6 +14,6 @@ module.exports = {
 		console.log(`Ready! Logged in as ${client.user.tag}`);
 		if (useMongoDB) connectMongoose();
 		if (timeout.aiResponses) generateReserveResponses();
-		// TODO: Add activities
+		setActivity(client);
 	},
 };

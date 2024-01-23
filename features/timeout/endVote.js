@@ -101,10 +101,6 @@ const addToDatabase = (user, voiceChannelID, timeoutChannelID, mainChannelID, me
 
 	// Update embed every 10 seconds
 	handleTimeoutDatabase(user, message, embed, endTime, mainChannelID);
-
-	// TODO:
-	// To track how many times user has been timed out
-	// increment user's timeout count in mongoDB by 1
 };
 
 module.exports = function endVote(
