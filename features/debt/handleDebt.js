@@ -33,10 +33,11 @@ const updateAndRespond = (db, interaction, from, to, amount) => {
 		if (err) return respond(interaction, str[lang].commands.debt.errUpdatingDebts);
 	});
 
+	const confirmation = confirmationContent(from, to, amount);
 	// Update embed, respond to interaction and send a confirmation
 	updateDebtEmbed(db, interaction.guild);
-	respond(interaction, confirmationContent(from, to, amount));
-	sendConfirmation(interaction, from, to, amount);
+	respond(interaction, confirmation);
+	sendConfirmation(interaction, confirmation);
 };
 
 module.exports = function handleDebt(i, from, to, amount) {
