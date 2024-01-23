@@ -37,12 +37,18 @@ module.exports = {
 		const config = JSON.parse(fs.readFileSync("./configs/config.json", "utf8"));
 		if (!config.mainChannelID)
 			return await interaction.reply({
-				content: str[lang].commands.timeout.errors.noMainChannel,
+				content: str[lang].commands.timeout.errors.noMainChannel.replace(
+					"${command}",
+					str[lang].commands.setup.name
+				),
 				ephemeral: true,
 			});
 		if (!config.timeoutChannelID)
 			return await interaction.reply({
-				content: str[lang].commands.timeout.errors.noTimeoutChannel,
+				content: str[lang].commands.timeout.errors.noTimeoutChannel.replace(
+					"${command}",
+					str[lang].commands.setup.name
+				),
 				ephemeral: true,
 			});
 

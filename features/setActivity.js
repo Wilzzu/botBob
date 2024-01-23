@@ -1,7 +1,9 @@
 const { ActivityType } = require("discord.js");
 const {
+	lang,
 	features: { activity },
 } = require("../configs/config.json");
+const str = require("../configs/languages.json");
 
 const mapTypes = {
 	Playing: ActivityType.Playing,
@@ -11,12 +13,12 @@ const mapTypes = {
 };
 
 const setNewActivity = (client) => {
-	const types = Object.keys(activity.activities);
-	const selectedType = types[Math.floor(Math.random() * types.length)];
-	const activities = activity.activities[selectedType];
+	const availableTypes = Object.keys(str[lang].activities);
+	const type = availableTypes[Math.floor(Math.random() * availableTypes.length)];
+	const selected = str[lang].activities[type];
 
-	client.user.setActivity(activities[Math.floor(Math.random() * activities.length)], {
-		type: mapTypes[selectedType],
+	client.user.setActivity(selected[Math.floor(Math.random() * selected.length)], {
+		type: mapTypes[type],
 	});
 };
 
