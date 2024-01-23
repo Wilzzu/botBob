@@ -1,24 +1,57 @@
 {
 	"prefix": "!",
 	"lang": "en-US",
-	"guildID": "1",
-	"mainChannelID": "2",
-	"cooldownDatabaseGuildID": "3",
-	"cooldownDatabaseChannelID": "4",
-	"RapidAPI": {
+	"mainAdmin": "",
+	"admins": [],
+	"guildID": "",
+	"mainChannelID": "",
+	"debtChannelID": "",
+	"debtEmbedID": "",
+	"debtThreadID": "",
+	"timeoutChannelID": "",
+	"useMongoDB": true,
+	"rapidAPI": {
 		"url": "https://open-ai25.p.rapidapi.com/ask",
 		"host": "open-ai25.p.rapidapi.com"
 	},
+	"features": {
+		"timeout": {
+			"aiResponses": true,
+			"reserveAIResponses": 3,
+			"voteDuration": 40,
+			"timeoutDuration": 60000,
+			"timeoutDurationNotInVc": 300000,
+			"rpsDuration": 30,
+			"rpsDelayBeforeTimingOut": 3000
+		},
+		"debt": {
+			"image": "https://i.imgur.com/xvIX7bo.png"
+		},
+		"activity": {
+			"interval": 600000
+		}
+	},
 	"duplicateMessages": ["hello", "bye"],
+	"rareMessages": [
+		{
+			"content": "Wow thats rare!",
+			"file": "https://i.imgur.com/Z0GIC8S.png",
+			"chance": 0.00001
+		},
+		{
+			"content": "You are lucky!",
+			"chance": 0.001
+		}
+	],
 	"customUserResponses": [
-		{ "name": "User 1", "id": "1", "message": "Custom reply to the user", "chance": 0.001 },
+		{ "name": "User 1", "id": "1", "message": "Hello!", "chance": 0.001 },
 		{
 			"name": "User 2",
 			"id": "2",
-			"file": "link-to-a-file",
+			"file": "https://i.imgur.com/Lbkashg.png",
 			"chance": 0.01
 		}
 	],
-	"wordsBotWillRespondTo": ["dumb", "stupid", "moron", "fool"],
+	"wordsBotWillRespondTo": ["dumb", "stupid", "fool"],
 	"botResponses": ["Be respectful, please.", "Thats not nice!"]
 }

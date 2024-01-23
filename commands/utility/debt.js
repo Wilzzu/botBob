@@ -74,7 +74,10 @@ module.exports = {
 		// Check if debt channel is set
 		if (!config.debtChannelID) {
 			return await interaction.reply({
-				content: str[lang].commands.debt.errors.noChannel,
+				content: str[lang].commands.debt.errors.noChannel.replace(
+					"${command}",
+					str[lang].commands.setup.name
+				),
 				ephemeral: true,
 			});
 		}

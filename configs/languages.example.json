@@ -1,7 +1,135 @@
 {
+	"en-US": {
+		"ai": {
+			"timeout": "Come up with a comment for a user who was voted to be timed out on a Discord server. Add this user's name to the comment exactly like this: [username]. Be as creative and funny as possible, compare the timeout to something. You can also make fun of the user. Add couple emojis to the comment. Also add couple hashtags to the end of the comment. Only give me the comment as the response."
+		},
+		"activities": {
+			"Playing": ["🎮 Counter-Strike", "🎮 Minecraft"],
+			"Watching": ["📺 YouTube", "📺 Twitch"],
+			"Listening": ["🎵 Spotify", "🎵 SoundCloud"],
+			"Competing": ["🏆 in a tournament", "🏆 in a competition"]
+		},
+		"commands": {
+			"timeout": {
+				"name": "timeout",
+				"description": "Vote a user to be timed out",
+				"user": "user",
+				"userDesc": "Select a user you want to vote to be timed out",
+				"errors": {
+					"noUser": "❌ You didn't select a user!",
+					"botUser": "❌ You can't vote a bot to be timed out!",
+					"noMainChannel": "❌ Main channel is not set, set it with `/${command}` command and try again!",
+					"noTimeoutChannel": "❌ Timeout channel is not set, set it with `/${command}` command and try again!"
+				}
+			},
+			"setup": {
+				"name": "setup",
+				"description": "Set up bot's settings"
+			},
+			"debt": {
+				"name": "debt",
+				"description": "Add a debt",
+				"from": "from",
+				"fromDesc": "Select a user who owes",
+				"to": "to",
+				"toDesc": "Select a user who the debt is paid to",
+				"amount": "amount",
+				"amountDesc": "Amount of the debt",
+				"errors": {
+					"notSlash": "❌ Use the command `/${command}` !",
+					"botUser": "❌ You can't add a debt to a bot!",
+					"sameUser": "❌ You can't add a debt to the same user!",
+					"noChannel": "❌ Debt channel is not set, set it with `/${command}` command and try again!",
+					"errUpdatingDebts": "❌ There was an error while updating debts!",
+					"notAdmin": "❌ You don't have permissions to add debts!"
+				}
+			},
+			"admin": {
+				"name": "admin",
+				"description": "Give admin permissions to a user",
+				"user": "user",
+				"userDesc": "Select a user you want to give admin permissions to",
+				"success": "✅ Gave ${username} admin permissions!",
+				"errors": {
+					"notSlash": "❌ Use the command `/${command}` !",
+					"botUser": "❌ You can't give admin permissions to a bot!",
+					"alreadyAdmin": "❌ User already has admin permissions!",
+					"notMainAdmin": "❌ You don't have permissions to add admins!"
+				}
+			}
+		},
+		"debt": {
+			"emoji": "💸",
+			"title": "DEBTS ${emoji}",
+			"description": "Users with the most debt:",
+			"noDebts": "No debts",
+			"threadName": "Debt log",
+			"threadReason": "History of given debts"
+		},
+		"setup": {
+			"mainChannel": "Main channel",
+			"debtChannel": "Debt channel",
+			"timeoutChannel": "Timeout channel",
+			"buttonText": "Set ${channel}",
+			"embedTitle": "🤖 Set ${username}'s settings",
+			"embedDesc": "🔔 `Set the channels by pressing the buttons below. If the buttons are outdated, use the /${command} command to update them.`",
+			"channelSelectHelp": "Select ${channel}:",
+			"notAuthorized": "❌ Only the bot's inviter can change the settings!"
+		},
+		"timeout": {
+			"embedTitle": "Timeout ${username}? ⌛",
+			"embedDesc": "Time left to vote: **${timeLeft}s**",
+			"embedDescEnd": "Voting has ended:\n",
+			"votePassed": "**✅ Moving ${username} to timeout for a minute**",
+			"votePassedNotInVc": "**✅ Moving ${username} to timeout for 5 minutes**",
+			"voteFailed": "**❌ Not moving ${username} to timeout**",
+			"notEnoughVotes": "**🚫 Not enough votes**",
+			"tie": ":crossed_swords: Tie, **RPS** will decide the result of the vote:\n\u200B",
+			"voteAlreadyStarted": "❌ There is already a vote for ${username}!",
+			"alreadyOnTimeout": "❌ ${username} is already on timeout!",
+			"voterIsTimedOut": "❌ You can't vote while you are on timeout!",
+			"userOnDifferentChannel": "❌ You are not on the same voice channel with ${username} !",
+			"userHasHigherRoleThanBot": "❌ You can't vote ${username} to be timed out, because they have a higher role than the bot!",
+			"cantVoteNoOnYourself": "❌ You can't vote **NO**, when the vote is about you!",
+			"notInVoiceChannel": "❌ Join the voice channel ${voiceChannel} to vote!",
+			"alreadyVoted": "❌ You have already voted!",
+			"whoStarted": "${username} started a vote:",
+			"startConfirm": "✅ Vote started!",
+			"startConfirmDiffChannel": "✅ Vote started on channel ${channel} !",
+			"timeoutLeft": "🕒 Timeout left: ${timeLeft}",
+			"timeoutEnded": "👍 Timeout ended",
+			"rolesRemoved": "Removed roles for the duration of the timeout",
+			"rolesAddedBack": "Added roles back after the timeout",
+			"movedUserToTimeout": "Moved user to timeout channel for the duration of the timeout",
+			"movedUserBackToVc": "Moved user back to voice channel after the timeout",
+			"yesVotes": "Yes",
+			"noVotes": "No",
+			"rpsDesc": "**Select rock, paper or scissors.** Time left: **${timeLeft}s**",
+			"rock": "Rock",
+			"paper": "Paper",
+			"scissors": "Scissors",
+			"rpsNotEligible": "❌ You can't participate in RPS, because you didn't vote in the previous vote!",
+			"teamName": "TEAM",
+			"rpsAlreadyChosen": "You have already chosen: ${choice}",
+			"rpsTeamChoices": "${teamYes} vs ${teamNo}",
+			"rpsNeitherTeamVoted": "Neither team voted",
+			"rpsOtherTeamDidntVote": "Opponent team didn't vote",
+			"rpsResults": "**${winner}** won!",
+			"rpsResultsTie": "**tie!**"
+		},
+		"error": {
+			"commandExec": "❌ There was an error executing the command!"
+		}
+	},
 	"fi": {
 		"ai": {
-			"timeout": "Come up with a comment for a user who was voted to be timed out on a Discord server. Add this user's name to the comment like this: [username]. Be as creative and funny as possible. Make sure to add couple emojis to the comment. You can also add couple hashtags to the end of the comment. The comment must be in Finnish. Only give me the comment as the response."
+			"timeout": "Come up with a comment for a user who was voted to be timed out on a Discord server. Add this user's name to the comment exactly like this: [username]. Be as creative and funny as possible, compare the timeout to something. You can also make fun of the user. Add couple emojis to the comment. Also add couple hashtags to the end of the comment. The comment must be in Finnish, except only the [username] part. Only give me the comment as the response."
+		},
+		"activities": {
+			"Playing": ["🎮 Counter-Strike", "🎮 Minecraft"],
+			"Watching": ["📺 YouTube", "📺 Twitch"],
+			"Listening": ["🎵 Spotify", "🎵 SoundCloud"],
+			"Competing": ["🏆 turnauksessa", "🏆 kilpailussa"]
 		},
 		"commands": {
 			"timeout": {
@@ -10,34 +138,109 @@
 				"user": "käyttäjä",
 				"userDesc": "Valitse käyttäjä jonka haluat äänestää jäähylle",
 				"errors": {
-					"noUser": "Et valinnut käyttäjää ❌",
-					"botUser": "Et voi äänestää bottia jäähylle ❌"
+					"noUser": "❌ Et valinnut käyttäjää!",
+					"botUser": "❌ Et voi äänestää bottia jäähylle!",
+					"noMainChannel": "❌ Pääkanavaa ei ole määritetty, määritä se komennolla `/${command}` ja yritä uudelleen!",
+					"noTimeoutChannel": "❌ Jäähykanavaa ei ole määritetty, määritä se komennolla `/${command}` ja yritä uudelleen!"
 				}
-			}
-		},
-		"error": {
-			"commandExec": "Komentoa suorittaessa tapahtui virhe!"
-		}
-	},
-
-	"en-US": {
-		"ai": {
-			"timeout": "Come up with a comment for a user who was voted to be timed out on a Discord server. Add this user's name to the comment like this: [username]. Be as creative and funny as possible. Make sure to add couple emojis to the comment. You can also add couple hashtags to the end of the comment. Only give me the comment as the response."
-		},
-		"commands": {
-			"timeout": {
-				"name": "timeout",
-				"description": "Start a vote to timeout a user",
-				"user": "user",
-				"userDesc": "Select the user you want to timeout",
+			},
+			"setup": {
+				"name": "asetukset",
+				"description": "Määritä botin asetukset"
+			},
+			"debt": {
+				"name": "velka",
+				"description": "Lisää velka",
+				"from": "keneltä",
+				"fromDesc": "Valitse käyttäjä kuka on velkaa",
+				"to": "kenelle",
+				"toDesc": "Valitse käyttäjä kenelle velka maksetaan",
+				"amount": "määrä",
+				"amountDesc": "Velan määrä",
 				"errors": {
-					"noUser": "You didn't select a user ❌",
-					"botUser": "You can't timeout a bot ❌"
+					"notSlash": "❌ Käytä komentoa `/${command}` !",
+					"botUser": "❌ Et voi lisätä velkaa botille!",
+					"sameUser": "❌ Et voi lisätä velkaa samalle käyttäjälle!",
+					"noChannel": "❌ Velkakanavaa ei ole määritetty, määritä se komennolla `/${command}` ja yritä uudelleen!",
+					"errUpdatingDebts": "❌ Tapahui virhe velkojen päivittämisessä!",
+					"notAdmin": "❌ Sinulla ei ole oikeuksia lisätä velkoja!"
+				}
+			},
+			"admin": {
+				"name": "admin",
+				"description": "Anna käyttäjälle admin oikeudet",
+				"user": "käyttäjä",
+				"userDesc": "Valitse käyttäjä, jolle haluat antaa admin oikeudet",
+				"success": "✅ Annettiin käyttäjälle ${username} admin oikeudet!",
+				"errors": {
+					"notSlash": "❌ Käytä komentoa `/${command}` !",
+					"botUser": "❌ Et voi lisätä admin oikeuksia botille!",
+					"alreadyAdmin": "❌ Käyttäjällä on jo admin oikeudet!",
+					"notMainAdmin": "❌ Sinulla ei ole oikeuksia lisätä admineita!"
 				}
 			}
 		},
+		"debt": {
+			"emoji": "💸",
+			"title": "VELAT ${emoji}",
+			"description": "Eniten velkaa olevat käyttäjät:",
+			"noDebts": "Ei velkoja",
+			"threadName": "Velkalog",
+			"threadReason": "Historia annetuista veloista"
+		},
+		"setup": {
+			"mainChannel": "Pääkanava",
+			"debtChannel": "Velkakanava",
+			"timeoutChannel": "Jäähykanava",
+			"buttonText": "Määritä ${channel}",
+			"embedTitle": "🤖 Määritä ${username}in asetukset",
+			"embedDesc": "🔔 `Määritä kanavat painamalla alla olevia nappeja. Jos napit ovat vanhentuneet, käytä /${command} komentoa niiden päivittämiseksi.`",
+			"channelSelectHelp": "Valitse ${channel}:",
+			"notAuthorized": "❌ Vain botin lisääjä voi muuttaa asetuksia!"
+		},
+		"timeout": {
+			"embedTitle": "${username} jäähylle? ⌛",
+			"embedDesc": "Äänestysaikaa jäljellä: **${timeLeft}s**",
+			"embedDescEnd": "Äänestys on päättynyt:\n",
+			"votePassed": "**✅ Siirretään ${username} minuutiksi jäähylle**",
+			"votePassedNotInVc": "**✅ Siirretään ${username} 5 minuutiksi jäähylle**",
+			"voteFailed": "**❌ Ei siirretä käyttäjää ${username} jäähylle**",
+			"notEnoughVotes": "**🚫 Ei riittävästi ääniä**",
+			"tie": ":crossed_swords: Tasapeli, **KPS** ratkaisee äänestyksen tuloksen:\n\u200B",
+			"voteAlreadyStarted": "❌ Käyttäjän ${username} äänestys on jo käynnissä!",
+			"alreadyOnTimeout": "❌ Käyttäjä ${username} on jo jäähyllä!",
+			"voterIsTimedOut": "❌ Et voi äänestää ollessasi jäähyllä!",
+			"userOnDifferentChannel": "❌ Et ole käyttäjän ${username} kanssa samalla puhekanavalla!",
+			"userHasHigherRoleThanBot": "❌ Et voi äänestää käyttäjää ${username} jäähylle, koska hänellä on korkeampi rooli kuin botilla!",
+			"cantVoteNoOnYourself": "❌ Et voi äänestää **EI**, kun äänestys koskee sinua!",
+			"notInVoiceChannel": "❌ Liity puhekanavalle ${voiceChannel} äänestääksesi!",
+			"alreadyVoted": "❌ Olet jo äänestänyt!",
+			"whoStarted": "${username} aloitti äänestyksen:",
+			"startConfirm": "✅ Äänestys aloitettiin!",
+			"startConfirmDiffChannel": "✅ Äänestys aloitettiin kanavalla ${channel} !",
+			"timeoutLeft": "🕒 Jäähyä jäljellä: ${timeLeft}",
+			"timeoutEnded": "👍 Jäähy on loppunut",
+			"rolesRemoved": "Poistettiin roolit jäähyn ajaksi",
+			"rolesAddedBack": "Lisättiin roolit takaisin jäähyn loputtua",
+			"movedUserToTimeout": "Siirrettiin käyttäjä jäähykanavalle jäähyn ajaksi",
+			"movedUserBackToVc": "Siirrettiin käyttäjä takaisin puhekanavalle jäähyn loputtua",
+			"yesVotes": "Kyllä",
+			"noVotes": "Ei",
+			"rpsDesc": "**Valitse kivi, paperi tai sakset.** Aikaa jäljellä: **${timeLeft}s**",
+			"rock": "Kivi",
+			"paper": "Paperi",
+			"scissors": "Sakset",
+			"rpsNotEligible": "❌ Et voi osallistua KPS:ään, koska et äänestänyt edellisessä äänestyksessä!",
+			"teamName": "TIIMI",
+			"rpsAlreadyChosen": "Olet jo valinnut: ${choice}",
+			"rpsTeamChoices": "${teamYes} vs ${teamNo}",
+			"rpsNeitherTeamVoted": "Kumpikaan tiimi ei äänestänyt",
+			"rpsOtherTeamDidntVote": "Vastustaja tiimi ei äänestänyt",
+			"rpsResults": "**${winner}** voitti!",
+			"rpsResultsTie": "**tasapeli!**"
+		},
 		"error": {
-			"commandExec": "An error occurred while executing the command!"
+			"commandExec": "❌ Komentoa suorittaessa tapahtui virhe!"
 		}
 	}
 }
