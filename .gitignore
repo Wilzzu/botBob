@@ -3,4 +3,6 @@ node_modules
 config.json
 config_prod.json
 languages.json
-commands_config.json
+aiResponses.json
+debtsDb.json
+timeoutDb.json
