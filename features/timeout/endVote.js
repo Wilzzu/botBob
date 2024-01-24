@@ -7,6 +7,7 @@ const str = require("../../configs/languages.json");
 const tiebreaker = require("./tiebreaker");
 const fs = require("fs");
 const handleTimeoutDatabase = require("./handleTimeoutDatabase");
+const generateReserveResponses = require("./generateReserveResponses");
 
 // Create embed with final result
 const createEmbed = (message, result, votes, votesNeeded, user) => {
@@ -57,6 +58,42 @@ const calculateVotes = (votes, voiceChannelID) => {
 	return { passed: false, desc: str[lang].timeout.voteFailed };
 };
 
+// Create new embed for AI response
+const createAIEmbed = (message, user, response) => {
+	return new EmbedBuilder()
+		.setColor("#2B2D31")
+		.setAuthor({
+			name: message.client.user.username,
+			iconURL: message.client.user.displayAvatarURL(),
+		})
+		.setDescription(
+			`**${response
+				.replace(/\[username\]/g, userMention(user.id))
+				.replace(/\[käyttäjänimi\]/g, userMention(user.id))}**`
+		);
+};
+
+const sendAIResponse = async (message, user, mainChannelID) => {
+	// Read current responses
+	let aiResponses = JSON.parse(fs.readFileSync("./databases/aiResponses.json", "utf-8"));
+
+	// Get first response and remove it from the array
+	if (!aiResponses?.length) return console.log("No AI responses found");
+	const response = aiResponses.shift();
+
+	// Write remaining responses to database
+	fs.writeFileSync("./databases/aiResponses.json", JSON.stringify(aiResponses), (err) => {
+		if (err) return console.log(err);
+	});
+
+	// Send AI response
+	const mainChannel = message.client.channels.cache.get(mainChannelID);
+	await mainChannel.send({ embeds: [createAIEmbed(message, user, response)] });
+
+	// Generate new responses if needed
+	generateReserveResponses();
+};
+
 const addToDatabase = (user, voiceChannelID, timeoutChannelID, mainChannelID, message, embed) => {
 	// Get member's roles
 	const member = message.guild.members.cache.get(user.id);
@@ -71,12 +108,15 @@ const addToDatabase = (user, voiceChannelID, timeoutChannelID, mainChannelID, me
 	timeoutDb[user.id] = {
 		username: user?.globalName || user?.username,
 		roles,
-		lastVoiceChannelId: voiceChannelID,
+		lastVoiceChannelId: voiceChannelID || member.voice.channelId || null,
 		endTime,
 	};
 	fs.writeFileSync("./databases/timeoutDb.json", JSON.stringify(timeoutDb, null, 4), (err) => {
 		if (err) return console.log(err);
 	});
+
+	// Send AI response
+	if (timeout.aiResponses) sendAIResponse(message, user, mainChannelID);
 
 	// Move user to timeout channel if possible
 	if (member.voice.channelId) {
@@ -100,7 +140,7 @@ const addToDatabase = (user, voiceChannelID, timeoutChannelID, mainChannelID, me
 	}
 
 	// Update embed every 10 seconds
-	handleTimeoutDatabase(user, message, embed, endTime, mainChannelID);
+	handleTimeoutDatabase(user, message, embed, endTime);
 };
 
 module.exports = function endVote(

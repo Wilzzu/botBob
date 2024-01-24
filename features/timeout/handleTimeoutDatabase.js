@@ -1,53 +1,8 @@
 const { EmbedBuilder, userMention } = require("discord.js");
-const {
-	lang,
-	useMongoDB,
-	features: { timeout },
-} = require("../../configs/config.json");
+const { lang, useMongoDB } = require("../../configs/config.json");
 const str = require("../../configs/languages.json");
 const fs = require("fs");
 const { addTimeoutToMongoDB } = require("../../utils/mongoose");
-const generateReserveResponses = require("./generateReserveResponses");
-
-// Create new embed for AI response
-const createAIEmbed = (message, user, response) => {
-	return new EmbedBuilder()
-		.setColor("#2B2D31")
-		.setAuthor({
-			name: message.client.user.username,
-			iconURL: message.client.user.displayAvatarURL(),
-		})
-		.setDescription(
-			`**${response
-				.replace(/\[username\]/g, userMention(user.id))
-				.replace(/\[käyttäjänimi\]/g, userMention(user.id))}**`
-		);
-};
-
-const sendAIResponse = async (message, user, mainChannelID) => {
-	// Read current responses
-	let aiResponses = JSON.parse(fs.readFileSync("./databases/aiResponses.json", "utf-8"));
-
-	// Get first response and remove it from the array
-	if (!aiResponses?.length) return console.log("No AI responses found");
-	const response = aiResponses.shift();
-
-	// Write remaining responses to database
-	fs.writeFileSync("./databases/aiResponses.json", JSON.stringify(aiResponses), (err) => {
-		if (err) return console.log(err);
-	});
-
-	// Send AI response with a little delay
-	const mainChannel = message.client.channels.cache.get(mainChannelID);
-	mainChannel.sendTyping();
-	setTimeout(
-		async () => await mainChannel.send({ embeds: [createAIEmbed(message, user, response)] }),
-		1500
-	);
-
-	// Generate new responses if needed
-	generateReserveResponses();
-};
 
 const handleTimeoutEnd = (user, message) => {
 	let timeoutDb = JSON.parse(fs.readFileSync("./databases/timeoutDb.json", "utf-8"));
@@ -96,7 +51,7 @@ const updateEmbed = (message, embed, endTime, footer, user) => {
 	message.edit({ embeds: [embedWithFooter], components: [] });
 };
 
-module.exports = function handleTimeoutDatabase(user, message, embed, endTime, mainChannelID) {
+module.exports = function handleTimeoutDatabase(user, message, embed, endTime) {
 	// Update embed
 	updateEmbed(message, embed, endTime, str[lang].timeout.timeoutLeft, user);
 
@@ -109,9 +64,6 @@ module.exports = function handleTimeoutDatabase(user, message, embed, endTime, m
 			avatar: user.displayAvatarURL(),
 		});
 	}
-
-	// Send AI response
-	if (timeout.aiResponses) sendAIResponse(message, user, mainChannelID);
 
 	// Update embed time left every 10 seconds
 	const interval = setInterval(() => {
