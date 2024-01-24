@@ -14,6 +14,12 @@ RUN chown -R app:app .
 
 USER app
 
+ADD configs/config.example.json configs/config.json
+ADD configs/languages.example.json configs/languages.json
+ADD databases/aiResponses.example.json databases/aiResponses.json
+ADD databases/debtsDb.example.json databases/debtsDb.json
+ADD databases/timeoutDb.example.json databases/timeoutDb.json
+
 RUN npm install
 
 COPY . .
