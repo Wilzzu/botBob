@@ -9,14 +9,14 @@
 	"debtEmbedID": "",
 	"debtThreadID": "",
 	"timeoutChannelID": "",
-	"useMongoDB": true,
+	"useMongoDB": false,
 	"rapidAPI": {
 		"url": "https://open-ai25.p.rapidapi.com/ask",
 		"host": "open-ai25.p.rapidapi.com"
 	},
 	"features": {
 		"timeout": {
-			"aiResponses": true,
+			"aiResponses": false,
 			"reserveAIResponses": 3,
 			"voteDuration": 40,
 			"timeoutDuration": 60000,
