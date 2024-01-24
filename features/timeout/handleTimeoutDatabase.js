@@ -1,4 +1,4 @@
-const { EmbedBuilder, userMention } = require("discord.js");
+const { EmbedBuilder } = require("discord.js");
 const { lang, useMongoDB } = require("../../configs/config.json");
 const str = require("../../configs/languages.json");
 const fs = require("fs");
