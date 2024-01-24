@@ -79,14 +79,14 @@ const addToDatabase = (user, voiceChannelID, timeoutChannelID, mainChannelID, me
 	});
 
 	// Move user to timeout channel if possible
-	if (voiceChannelID && member.voice.channelId) {
+	if (member.voice.channelId) {
 		try {
 			member.voice.setChannel(
 				message.guild.channels.cache.get(timeoutChannelID),
 				str[lang].timeout.movedUserToTimeout
 			);
 		} catch (error) {
-			console.error("Couldn't remove user's roles");
+			console.error("Couldn't move user to timeout channel");
 		}
 	}
 
