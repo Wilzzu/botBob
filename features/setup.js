@@ -113,11 +113,13 @@ module.exports = async function setup(guild, client, command) {
 	}
 
 	// Get user who invited the bot
-	const fetchedLogs = await guild.fetchAuditLogs();
-	const inviter = fetchedLogs.entries.find(
-		(entry) => entry.actionType === "Create" && entry.targetId === client.user.id
-	).executor;
-	if (inviter && !config.mainAdmin) updateConfigFile("mainAdmin", inviter.id);
+	if (!config.mainAdmin) {
+		const fetchedLogs = await guild.fetchAuditLogs();
+		const inviter = fetchedLogs.entries.find(
+			(entry) => entry.actionType === "Create" && entry.targetId === client.user.id
+		)?.executor;
+		if (inviter) updateConfigFile("mainAdmin", inviter.id);
+	}
 
 	// Send setup message
 	let message;
