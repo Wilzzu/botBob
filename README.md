@@ -69,7 +69,7 @@ botBob is an advanced Discord bot built with the latest Discord.js version (v14)
    cd botBob
    ```
 
-   or download the [latest version]("https://github.com/wilzzu/botBob/releases/latest").
+   or download the [latest version](https://github.com/wilzzu/botBob/releases/latest).
 
 2. **Install Dependencies:**
 
