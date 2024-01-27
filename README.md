@@ -17,7 +17,7 @@
      <img src="https://img.shields.io/badge/Discord.js-14.14.1-blue?style=flat-square&labelColor=black&color=blue&label=Discord.js&logo=discord&logoColor=white" alt="discord.js">
   </a>
   <a href="https://choosealicense.com/licenses/mit/">
-     <img src="https://img.shields.io/github/license/wilzzu/botBob?style=flat-square&labelColor=black&color=blue&label=License" alt="License">
+     <img src="https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square&labelColor=black&color=blue&label=License" alt="License">
   </a>
 </p>
 
