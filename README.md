@@ -201,7 +201,7 @@ You can disable unneeded commands by deleting their command files at `/commands/
 
 ## Deprecated features
 
-I've been developing botBob since 2019, and over the years, several features were implemented that have since been deprecated. You can find the code for these features under the [`/deprecated`](https://github.com/Wilzzu/botBob/tree/main/configs) folder. I've included them to be transparent and show how the code quality and design have evolved over the course of this project.\
+I've been developing botBob since 2019, and over the years, several features were implemented that have since been deprecated. You can find the code for these features under the [`/deprecated`](https://github.com/Wilzzu/botBob/tree/main/deprecated) folder. I've included them to be transparent and show how the code quality and design have evolved over the course of this project.\
 Feel free to check out these details and screenshots showing how the features used to look when they were still in use:
 
 <details>
