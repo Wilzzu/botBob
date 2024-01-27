@@ -1,0 +1,1392 @@
+{
+	"all": [
+		{
+			"name": "Agumon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-23.png"
+		},
+		{
+			"name": "Varodurumon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-226.png"
+		},
+		{
+			"name": "PrinceMamemon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-279.png"
+		},
+		{
+			"name": "MetalGarurumon (Blk)",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-300.png"
+		},
+		{
+			"name": "Platinum Sukamon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-129.png"
+		},
+		{
+			"name": "Okuwamon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-159.png"
+		},
+		{
+			"name": "Neptunemon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-274.png"
+		},
+		{
+			"name": "SaviourHackmon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-167.png"
+		},
+		{
+			"name": "Slayerdramon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-254.png"
+		},
+		{
+			"name": "Triceramon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-190.png"
+		},
+		{
+			"name": "Lalamon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-61.png"
+		},
+		{
+			"name": "Vademon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-197.png"
+		},
+		{
+			"name": "Pumpkinmon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-183.png"
+		},
+		{
+			"name": "DemiDevimon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-52.png"
+		},
+		{
+			"name": "Impmon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-30.png"
+		},
+		{
+			"name": "Shogun Gekomon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-175.png"
+		},
+		{
+			"name": "Devimon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-114.png"
+		},
+		{
+			"name": "Pandamon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-184.png"
+		},
+		{
+			"name": "Lotosmon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-305.png"
+		},
+		{
+			"name": "Golemon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-104.png"
+		},
+		{
+			"name": "Sistermon Blanc",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-344.png"
+		},
+		{
+			"name": "Lekismon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-138.png"
+		},
+		{
+			"name": "Silphymon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-172.png"
+		},
+		{
+			"name": "BaoHuckmon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-133.png"
+		},
+		{
+			"name": "LadyDevimon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-216.png"
+		},
+		{
+			"name": "Punimon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-7.png"
+		},
+		{
+			"name": "Duramon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-176.png"
+		},
+		{
+			"name": "MetalGarurumon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-301.png"
+		},
+		{
+			"name": "Gotsumon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-40.png"
+		},
+		{
+			"name": "Dorimon",
+			"img": "https://i.imgur.com/NYIrLsv.png"
+		},
+		{
+			"name": "Woodmon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-84.png"
+		},
+		{
+			"name": "MetalMamemon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-208.png"
+		},
+		{
+			"name": "Lilithmon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-311.png"
+		},
+		{
+			"name": "KendoGarurumon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-157.png"
+		},
+		{
+			"name": "KaiserGreymon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-237.png"
+		},
+		{
+			"name": "Reppamon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-137.png"
+		},
+		{
+			"name": "Beelzemon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-293.png"
+		},
+		{
+			"name": "Nanimon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-121.png"
+		},
+		{
+			"name": "Wingdramon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-144.png"
+		},
+		{
+			"name": "Lucemon FM",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-217.png"
+		},
+		{
+			"name": "GranKuwagamon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-242.png"
+		},
+		{
+			"name": "GranDracmon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-241.png"
+		},
+		{
+			"name": "Lucemon SM",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-314.png"
+		},
+		{
+			"name": "Gallantmon NX",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-336.png"
+		},
+		{
+			"name": "Merukimon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-298.png"
+		},
+		{
+			"name": "Monodramon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-62.png"
+		},
+		{
+			"name": "Alphamon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-222.png"
+		},
+		{
+			"name": "Coredramon (Blue)",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-100.png"
+		},
+		{
+			"name": "Megidramon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-303.png"
+		},
+		{
+			"name": "Piximon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-202.png"
+		},
+		{
+			"name": "Kudamon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-32.png"
+		},
+		{
+			"name": "Wanyamon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-20.png"
+		},
+		{
+			"name": "Goldramon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-246.png"
+		},
+		{
+			"name": "Otamamon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-28.png"
+		},
+		{
+			"name": "IceDevimon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-68.png"
+		},
+		{
+			"name": "Kerpymon (Blk)",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-248.png"
+		},
+		{
+			"name": "Tokomon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-13.png"
+		},
+		{
+			"name": "Chaosmon VA",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-318.png"
+		},
+		{
+			"name": "Ginryumon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-335.png"
+		},
+		{
+			"name": "Renamon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-58.png"
+		},
+		{
+			"name": "Palmon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-44.png"
+		},
+		{
+			"name": "Examon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-322.png"
+		},
+		{
+			"name": "Ravemon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-310.png"
+		},
+		{
+			"name": "Omnimon Zwart",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-320.png"
+		},
+		{
+			"name": "Clockmon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-88.png"
+		},
+		{
+			"name": "MegaKabuterimon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-151.png"
+		},
+		{
+			"name": "Matadormon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-193.png"
+		},
+		{
+			"name": "WereGarurumon (Blk)",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-214.png"
+		},
+		{
+			"name": "Koromon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-9.png"
+		},
+		{
+			"name": "WereGarurumon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-215.png"
+		},
+		{
+			"name": "Wormmon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-56.png"
+		},
+		{
+			"name": "Crescemon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-165.png"
+		},
+		{
+			"name": "MegaGargomon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-252.png"
+		},
+		{
+			"name": "Chuumon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-34.png"
+		},
+		{
+			"name": "Peckmon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-126.png"
+		},
+		{
+			"name": "Terriermon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-43.png"
+		},
+		{
+			"name": "Meramon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-125.png"
+		},
+		{
+			"name": "GeoGreymon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-109.png"
+		},
+		{
+			"name": "Lopmon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-57.png"
+		},
+		{
+			"name": "Bukamon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-17.png"
+		},
+		{
+			"name": "Sistermon Ciel (Awake.)",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-341.png"
+		},
+		{
+			"name": "Chaosdramon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-235.png"
+		},
+		{
+			"name": "Gekomon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-86.png"
+		},
+		{
+			"name": "RizeGreymon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-205.png"
+		},
+		{
+			"name": "MudFrigimon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-117.png"
+		},
+		{
+			"name": "Apocalymon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-332.png"
+		},
+		{
+			"name": "DoruGreymon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-189.png"
+		},
+		{
+			"name": "Rosemon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-307.png"
+		},
+		{
+			"name": "Machinedramon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-304.png"
+		},
+		{
+			"name": "Gatomon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-115.png"
+		},
+		{
+			"name": "MagnaGarurumon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-287.png"
+		},
+		{
+			"name": "Armadillomon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-31.png"
+		},
+		{
+			"name": "Sunflowmon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-112.png"
+		},
+		{
+			"name": "Hagurumon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-47.png"
+		},
+		{
+			"name": "Agumon (Blk)",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-22.png"
+		},
+		{
+			"name": "Dinobeemon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-179.png"
+		},
+		{
+			"name": "MetalEtemon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-302.png"
+		},
+		{
+			"name": "Dorugamon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-122.png"
+		},
+		{
+			"name": "Imperialdramon FM",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-229.png"
+		},
+		{
+			"name": "Shoutmon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-331.png"
+		},
+		{
+			"name": "Hackmon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-45.png"
+		},
+		{
+			"name": "ToyAgumon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-51.png"
+		},
+		{
+			"name": "Sorcerimon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-119.png"
+		},
+		{
+			"name": "MetalGreymon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-211.png"
+		},
+		{
+			"name": "KingEtemon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-233.png"
+		},
+		{
+			"name": "Mamemon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-191.png"
+		},
+		{
+			"name": "Yokomon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-16.png"
+		},
+		{
+			"name": "Sangloupmon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-102.png"
+		},
+		{
+			"name": "Sakuyamon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-244.png"
+		},
+		{
+			"name": "ExVeemon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-82.png"
+		},
+		{
+			"name": "Puppetmon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-268.png"
+		},
+		{
+			"name": "Garurumon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-95.png"
+		},
+		{
+			"name": "Dynasmon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-259.png"
+		},
+		{
+			"name": "Solarmon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-35.png"
+		},
+		{
+			"name": "Cyberdramon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-164.png"
+		},
+		{
+			"name": "Gaomon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-27.png"
+		},
+		{
+			"name": "Gaogamon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-77.png"
+		},
+		{
+			"name": "Seadramon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-111.png"
+		},
+		{
+			"name": "Titamon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-265.png"
+		},
+		{
+			"name": "Whamon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-196.png"
+		},
+		{
+			"name": "Tanemon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-10.png"
+		},
+		{
+			"name": "Elecmon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-29.png"
+		},
+		{
+			"name": "Cherrymon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-173.png"
+		},
+		{
+			"name": "Dorumon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-48.png"
+		},
+		{
+			"name": "Icemon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-76.png"
+		},
+		{
+			"name": "Guardromon (Gold)",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-78.png"
+		},
+		{
+			"name": "Gankoomon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-234.png"
+		},
+		{
+			"name": "Togemon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-123.png"
+		},
+		{
+			"name": "Sistermon Blanc (Awake.)",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-343.png"
+		},
+		{
+			"name": "Patamon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-46.png"
+		},
+		{
+			"name": "BurningGreymon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-163.png"
+		},
+		{
+			"name": "Goblimon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-39.png"
+		},
+		{
+			"name": "Plesiomon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-281.png"
+		},
+		{
+			"name": "Panjyamon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-185.png"
+		},
+		{
+			"name": "Armageddemon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-313.png"
+		},
+		{
+			"name": "CannonBeemon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-154.png"
+		},
+		{
+			"name": "Lilamon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-220.png"
+		},
+		{
+			"name": "Skull Meramon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-177.png"
+		},
+		{
+			"name": "HerculesKabuterimon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-294.png"
+		},
+		{
+			"name": "Omnimon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-321.png"
+		},
+		{
+			"name": "Angemon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-81.png"
+		},
+		{
+			"name": "Shakkoumon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-174.png"
+		},
+		{
+			"name": "Cyclonemon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-103.png"
+		},
+		{
+			"name": "Paildramon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-186.png"
+		},
+		{
+			"name": "Seraphimon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-253.png"
+		},
+		{
+			"name": "Arcadiamon Ultra",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-325.png"
+		},
+		{
+			"name": "Starmon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-107.png"
+		},
+		{
+			"name": "MirageGaogamon BM",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-295.png"
+		},
+		{
+			"name": "Craniamon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-249.png"
+		},
+		{
+			"name": "Etemon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-161.png"
+		},
+		{
+			"name": "Gallantmon CM",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-316.png"
+		},
+		{
+			"name": "Gazimon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-26.png"
+		},
+		{
+			"name": "Belphemon SM",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-291.png"
+		},
+		{
+			"name": "Arcadiamon Rookie",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-21.png"
+		},
+		{
+			"name": "Creepymon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-261.png"
+		},
+		{
+			"name": "Tyrannomon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-116.png"
+		},
+		{
+			"name": "Susanomon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-317.png"
+		},
+		{
+			"name": "PlatinumNumemon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-267.png"
+		},
+		{
+			"name": "Datamon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-187.png"
+		},
+		{
+			"name": "Piedmon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-269.png"
+		},
+		{
+			"name": "Fanbeemon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-54.png"
+		},
+		{
+			"name": "Guilmon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-33.png"
+		},
+		{
+			"name": "Megadramon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-203.png"
+		},
+		{
+			"name": "Barbamon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-271.png"
+		},
+		{
+			"name": "Leviamon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-312.png"
+		},
+		{
+			"name": "CatchMamemon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-155.png"
+		},
+		{
+			"name": "Ouryumon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-333.png"
+		},
+		{
+			"name": "Gargomon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-96.png"
+		},
+		{
+			"name": "Hopmon",
+			"img": "https://i.imgur.com/TmED8IZ.png"
+		},
+		{
+			"name": "Belphemon RM",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-315.png"
+		},
+		{
+			"name": "Sukamon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-108.png"
+		},
+		{
+			"name": "Garudamon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-158.png"
+		},
+		{
+			"name": "Pagumon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-15.png"
+		},
+		{
+			"name": "Motimon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-18.png"
+		},
+		{
+			"name": "Imperialdramon PM",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-323.png"
+		},
+		{
+			"name": "Dianamon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-263.png"
+		},
+		{
+			"name": "Gabumon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-25.png"
+		},
+		{
+			"name": "Biyomon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-53.png"
+		},
+		{
+			"name": "Dracmon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-50.png"
+		},
+		{
+			"name": "Meteormon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-147.png"
+		},
+		{
+			"name": "MetalTyrannomon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-209.png"
+		},
+		{
+			"name": "ChaosGallantmon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-236.png"
+		},
+		{
+			"name": "Valkyrimon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-227.png"
+		},
+		{
+			"name": "Leopardmon NX",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-338.png"
+		},
+		{
+			"name": "Gomamon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-38.png"
+		},
+		{
+			"name": "Aquilamon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-75.png"
+		},
+		{
+			"name": "RustTyrannomon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-297.png"
+		},
+		{
+			"name": "Tankmon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-118.png"
+		},
+		{
+			"name": "Omnimon NX",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-337.png"
+		},
+		{
+			"name": "Crowmon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-206.png"
+		},
+		{
+			"name": "BlackWarGreymon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-280.png"
+		},
+		{
+			"name": "BlackKingNumemon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-199.png"
+		},
+		{
+			"name": "Arcadiamon Champion",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-73.png"
+		},
+		{
+			"name": "MachGaogamon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-192.png"
+		},
+		{
+			"name": "Pabumon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-4.png"
+		},
+		{
+			"name": "Gaiomon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-238.png"
+		},
+		{
+			"name": "ShellNumemon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-97.png"
+		},
+		{
+			"name": "Hououmon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-290.png"
+		},
+		{
+			"name": "Birdramon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-134.png"
+		},
+		{
+			"name": "Agunimon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-74.png"
+		},
+		{
+			"name": "SaberLeomon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-245.png"
+		},
+		{
+			"name": "Hudiemon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-130.png"
+		},
+		{
+			"name": "Hawkmon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-64.png"
+		},
+		{
+			"name": "Poyomon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-6.png"
+		},
+		{
+			"name": "Wargreymon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-224.png"
+		},
+		{
+			"name": "WarGrowlmon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-212.png"
+		},
+		{
+			"name": "SuperStarmon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-171.png"
+		},
+		{
+			"name": "Kurisarimon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-91.png"
+		},
+		{
+			"name": "Angewomon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-160.png"
+		},
+		{
+			"name": "Phantomon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-200.png"
+		},
+		{
+			"name": "Grademon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-166.png"
+		},
+		{
+			"name": "Turuiemon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-113.png"
+		},
+		{
+			"name": "Durandamon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-278.png"
+		},
+		{
+			"name": "Kerpymon (Good)",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-247.png"
+		},
+		{
+			"name": "Volcanomon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-194.png"
+		},
+		{
+			"name": "Arcadiamon In-Tr.",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-8.png"
+		},
+		{
+			"name": "VenomMyotismon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-225.png"
+		},
+		{
+			"name": "Falcomon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-55.png"
+		},
+		{
+			"name": "MetalGreymon(Blue)",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-210.png"
+		},
+		{
+			"name": "BlueMeramon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-198.png"
+		},
+		{
+			"name": "Lunamon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-59.png"
+		},
+		{
+			"name": "Beelzemon BM",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-292.png"
+		},
+		{
+			"name": "MirageGaogamon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-296.png"
+		},
+		{
+			"name": "Numemon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-135.png"
+		},
+		{
+			"name": "Chaosmon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-319.png"
+		},
+		{
+			"name": "Diaboromon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-262.png"
+		},
+		{
+			"name": "Salamon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-66.png"
+		},
+		{
+			"name": "Hiyarimon",
+			"img": "https://i.imgur.com/VkfyjX1.png"
+		},
+		{
+			"name": "Ogremon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-80.png"
+		},
+		{
+			"name": "Nyaromon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-14.png"
+		},
+		{
+			"name": "Ryudamon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-329.png"
+		},
+		{
+			"name": "Greymon (Blue)",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-89.png"
+		},
+		{
+			"name": "Zudomon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-168.png"
+		},
+		{
+			"name": "Syakomon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-37.png"
+		},
+		{
+			"name": "Imperialdramon DM",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-230.png"
+		},
+		{
+			"name": "Gold Numemon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-98.png"
+		},
+		{
+			"name": "Kuramon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-3.png"
+		},
+		{
+			"name": "Tsumemon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-12.png"
+		},
+		{
+			"name": "Gigadramon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-156.png"
+		},
+		{
+			"name": "Waspmon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-136.png"
+		},
+		{
+			"name": "ShineGreymon BM",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-257.png"
+		},
+		{
+			"name": "MagnaGarurumon (SV)",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-286.png"
+		},
+		{
+			"name": "Ankylomon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-72.png"
+		},
+		{
+			"name": "GroundLocomon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-240.png"
+		},
+		{
+			"name": "Ebemon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-231.png"
+		},
+		{
+			"name": "Strikedramon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-105.png"
+		},
+		{
+			"name": "Ophanimon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-239.png"
+		},
+		{
+			"name": "Dragomon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-181.png"
+		},
+		{
+			"name": "Crusadermon NX",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-339.png"
+		},
+		{
+			"name": "Wizardmon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-70.png"
+		},
+		{
+			"name": "Arcadiamon Ultimate",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-150.png"
+		},
+		{
+			"name": "OmniShoutmon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-330.png"
+		},
+		{
+			"name": "Burpmon",
+			"img": "https://i.imgur.com/Rl6pYf5.png"
+		},
+		{
+			"name": "TyrantKabuterimon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-264.png"
+		},
+		{
+			"name": "Leopardmon LM",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-276.png"
+		},
+		{
+			"name": "GrapLeomon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-152.png"
+		},
+		{
+			"name": "SkullSatamon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-169.png"
+		},
+		{
+			"name": "Black Gatomon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-128.png"
+		},
+		{
+			"name": "Myotismon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-145.png"
+		},
+		{
+			"name": "Ikkakumon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-71.png"
+		},
+		{
+			"name": "Wisemon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-213.png"
+		},
+		{
+			"name": "Darkdramon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-251.png"
+		},
+		{
+			"name": "Botamon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-5.png"
+		},
+		{
+			"name": "Kentaurosmon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-255.png"
+		},
+		{
+			"name": "MetalSeadramon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-299.png"
+		},
+		{
+			"name": "Sistermon Ciel",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-342.png"
+		},
+		{
+			"name": "Hisyaryumon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-334.png"
+		},
+		{
+			"name": "Knightmon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-188.png"
+		},
+		{
+			"name": "UlforceVeedramon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-221.png"
+		},
+		{
+			"name": "Justimon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-256.png"
+		},
+		{
+			"name": "Crusadermon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-308.png"
+		},
+		{
+			"name": "Coredramon (Green)",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-99.png"
+		},
+		{
+			"name": "Raptordramon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-141.png"
+		},
+		{
+			"name": "Taomon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-182.png"
+		},
+		{
+			"name": "Unimon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-142.png"
+		},
+		{
+			"name": "MagnaAngemon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-195.png"
+		},
+		{
+			"name": "Rosemon BM",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-306.png"
+		},
+		{
+			"name": "Lilymon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-218.png"
+		},
+		{
+			"name": "Goromon",
+			"img": "https://i.imgur.com/PHfgoY7.png"
+		},
+		{
+			"name": "Digitamamon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-178.png"
+		},
+		{
+			"name": "Dracomon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-49.png"
+		},
+		{
+			"name": "Rapidmon (Armor)",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-327.png"
+		},
+		{
+			"name": "Lucemon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-60.png"
+		},
+		{
+			"name": "Magnamon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-328.png"
+		},
+		{
+			"name": "Alphamon NX",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-340.png"
+		},
+		{
+			"name": "AeroVeedramon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-162.png"
+		},
+		{
+			"name": "Minervamon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-283.png"
+		},
+		{
+			"name": "Tsunomon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-11.png"
+		},
+		{
+			"name": "Kyubimon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-93.png"
+		},
+		{
+			"name": "PileVolcamon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-272.png"
+		},
+		{
+			"name": "Airdramon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-83.png"
+		},
+		{
+			"name": "Vikemon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-228.png"
+		},
+		{
+			"name": "Infermon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-146.png"
+		},
+		{
+			"name": "Zubaeagermon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-120.png"
+		},
+		{
+			"name": "Boltmon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-288.png"
+		},
+		{
+			"name": "ShineGreymon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-258.png"
+		},
+		{
+			"name": "Kabuterimon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-85.png"
+		},
+		{
+			"name": "BanchoLeomon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-270.png"
+		},
+		{
+			"name": "Monochromon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-124.png"
+		},
+		{
+			"name": "Groundramon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-153.png"
+		},
+		{
+			"name": "Coelamon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-110.png"
+		},
+		{
+			"name": "Gryphonmon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-250.png"
+		},
+		{
+			"name": "Stingmon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-106.png"
+		},
+		{
+			"name": "Raremon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-140.png"
+		},
+		{
+			"name": "Breakdramon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-282.png"
+		},
+		{
+			"name": "Bakemon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-132.png"
+		},
+		{
+			"name": "Leopardmon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-277.png"
+		},
+		{
+			"name": "TigerVespamon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-266.png"
+		},
+		{
+			"name": "Frigimon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-143.png"
+		},
+		{
+			"name": "Lobomon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-69.png"
+		},
+		{
+			"name": "Monzaemon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-207.png"
+		},
+		{
+			"name": "Flamedramon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-326.png"
+		},
+		{
+			"name": "Kuwagamon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-87.png"
+		},
+		{
+			"name": "Geremon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-101.png"
+		},
+		{
+			"name": "Chirinmon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-180.png"
+		},
+		{
+			"name": "Antylamon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-149.png"
+		},
+		{
+			"name": "Gabumon (Blk)",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-24.png"
+		},
+		{
+			"name": "Kuzuhamon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-232.png"
+		},
+		{
+			"name": "Veggiemon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-127.png"
+		},
+		{
+			"name": "MegaSeadramon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-204.png"
+		},
+		{
+			"name": "Veemon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-67.png"
+		},
+		{
+			"name": "Tentomon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-42.png"
+		},
+		{
+			"name": "Greymon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-90.png"
+		},
+		{
+			"name": "Leomon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-139.png"
+		},
+		{
+			"name": "Magnadramon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-289.png"
+		},
+		{
+			"name": "Mushroomon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-63.png"
+		},
+		{
+			"name": "Guardromon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-79.png"
+		},
+		{
+			"name": "Veedramon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-131.png"
+		},
+		{
+			"name": "Jesmon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-243.png"
+		},
+		{
+			"name": "Rapidmon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-219.png"
+		},
+		{
+			"name": "Hippogryphonmon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-201.png"
+		},
+		{
+			"name": "Batterimon",
+			"img": "https://i.imgur.com/JKhobCL.png"
+		},
+		{
+			"name": "Aracadiamon Mega",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-223.png"
+		},
+		{
+			"name": "SkullGreymon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-170.png"
+		},
+		{
+			"name": "Andromon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-148.png"
+		},
+		{
+			"name": "Growlmon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-92.png"
+		},
+		{
+			"name": "HiAndromon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-273.png"
+		},
+		{
+			"name": "Keramon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-41.png"
+		},
+		{
+			"name": "Ravemon BM",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-309.png"
+		},
+		{
+			"name": "Betamon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-65.png"
+		},
+		{
+			"name": "Garurumon (Blk)",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-94.png"
+		},
+		{
+			"name": "Alphamon Ouryuken",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-324.png"
+		},
+		{
+			"name": "Gallantmon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-260.png"
+		},
+		{
+			"name": "Dorugoramon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-275.png"
+		},
+		{
+			"name": "MarineAngemon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-284.png"
+		},
+		{
+			"name": "Zubamon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-36.png"
+		},
+		{
+			"name": "Mastemon",
+			"img": "https://gamefaqs.gamespot.com/a/faqs/95/75695-285.png"
+		}
+	]
+}

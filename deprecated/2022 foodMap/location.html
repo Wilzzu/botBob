@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<!--
+ @license
+ Copyright 2019 Google LLC. All Rights Reserved.
+ SPDX-License-Identifier: Apache-2.0
+-->
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>Ruoka 🥪</title>
+		<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link rel="stylesheet" type="text/css" href="./style.css" />
+		<script type="module" src="./location.js"></script>
+	</head>
+	<body>
+		<h3 id="mainPageTitle">Valitse sijaintisi</h3>
+		<div id="pinContainer">
+			<div id="map"></div>
+			<img src="./pinpointSmall.png" alt="" id="pinpoint" />
+			<div id="locationUI">
+				<p id="locationText">Liikuta merkki sijaintiisi</p>
+				<a href="#" onclick="copyText()"><div id="copyBtn">Kopioi sijainti leikepöydälle</div></a>
+			</div>
+		</div>
+		<p id="hiddenLoc" style="display: none">Et valinnut sijaintia?</p>
+		<script>
+			function copyText() {
+				let pos = document.getElementById("hiddenLoc").innerHTML;
+				navigator.clipboard.writeText(pos);
+
+				let copyBtn = document.getElementById("copyBtn");
+				copyBtn.innerHTML = "Sijainti kopioitu! ✅";
+				setTimeout(() => {
+					copyBtn.innerHTML = "Kopioi sijainti leikepöydälle";
+				}, 5000);
+			}
+		</script>
+		<script
+			src="https://maps.googleapis.com/maps/api/js?key=&callback=initMap&v=weekly"
+			defer
+		></script>
+	</body>
+</html>
