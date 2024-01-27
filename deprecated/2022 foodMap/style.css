@@ -1,0 +1,183 @@
+html,
+body {
+	height: 100%;
+	font-family: "Montserrat", sans-serif;
+}
+
+a,
+a:link,
+a:visited {
+	color: white;
+	text-decoration: none !important;
+}
+
+#map {
+	height: 95%;
+	/* The height is 400 pixels */
+	width: 100%;
+	/* The width is the width of the web page */
+}
+
+.foodLabel {
+	margin-top: -40px;
+	text-shadow: 1px 3px 3px #1d1d1d, 1px 3px 5px #141414;
+}
+
+#mainPageTitle {
+	text-align: center;
+}
+
+#infoWindow {
+	width: 500px;
+	font-size: 16px;
+}
+
+#postID {
+	margin: 0;
+	font-size: small;
+	color: silver;
+}
+
+#userInfo {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+
+#userInfo img {
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+}
+
+#stats {
+	font-weight: bold;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+#mainImg {
+	text-align: center;
+}
+
+#mainImg img {
+	border: 0px;
+	border-radius: 15px;
+	max-width: 500px;
+	max-height: 400px;
+}
+
+#likes {
+	font-weight: bold;
+	margin-bottom: 0;
+}
+
+#linkToPost {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+}
+
+#discordBtn {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 10px;
+	color: white;
+	background-color: #36393f;
+	padding: 5px 15px;
+	border: 0;
+	border-radius: 12px;
+}
+
+#discordBtnA :hover {
+	transition: 0.3s;
+	background-color: #202225;
+}
+
+#discordBtn img {
+	height: 32px;
+	width: 32px;
+}
+
+#comments h4 {
+	margin-bottom: 10px;
+}
+
+#commentBox {
+	display: inline-block;
+	margin-left: 2px;
+	padding: 0px 50px 0px 10px;
+	outline: solid 2px #141414;
+	border-radius: 10px;
+}
+
+#commenter {
+	display: flex;
+	align-items: center;
+	gap: 5px;
+	font-weight: bold;
+	margin-bottom: -20px;
+}
+
+#commenter img {
+	width: 25px;
+	height: 25px;
+	border-radius: 50%;
+}
+
+#breaker {
+	margin: 10px 0px;
+}
+
+/* LOCATION */
+
+#pinContainer {
+	position: relative;
+	width: 100%;
+	height: 95%;
+}
+
+#pinpoint {
+	position: absolute;
+	height: 280px;
+	width: 160px;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -115%);
+	user-drag: none;
+	-webkit-user-drag: none;
+	user-select: none;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+}
+
+#locationUI {
+	position: absolute;
+	height: 200px;
+	width: 80%;
+	bottom: 5%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	color: white;
+	background-color: rgba(0, 0, 0, 0.726);
+	text-align: center;
+	border: 0px;
+	border-radius: 20px;
+}
+
+#copyBtn {
+	color: white;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 150px;
+	background-color: #36b1ff;
+	border: 0px;
+	border-radius: 0 0 20px 20px;
+	font-size: xx-large;
+	font-weight: bold;
+}

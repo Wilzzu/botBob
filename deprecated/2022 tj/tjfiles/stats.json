@@ -1,0 +1,15 @@
+{
+	"daysLeft": 0,
+	"daysGone": 165,
+	"moneyMade": 859.7,
+	"firstSalary": 5.2,
+	"secondSalary": 8.7,
+	"thirdSalary": 12.1,
+	"firstRaise": 165,
+	"secondRaise": 255,
+	"rank": "TYKKIMIES",
+	"apiKey": "",
+	"coords": "61.05550033439513,24.370850592503416",
+	"endDate": "12.15.2022 12:00:00",
+	"crontab": "00 4 * * *"
+}

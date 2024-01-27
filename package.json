@@ -1,7 +1,7 @@
 {
 	"name": "botbob",
-	"version": "1.0.0",
-	"description": "Simple Discord bot primarily made for our private server",
+	"version": "3.0.0",
+	"description": "Advanced Discord bot with fully customizable features, AI integration, and multilingual support.",
 	"main": "index.js",
 	"scripts": {
 		"dev": "node --watch .",
@@ -12,9 +12,21 @@
 		"type": "git",
 		"url": "git+https://github.com/Wilzzu/botBob.git"
 	},
-	"keywords": [],
-	"author": "",
-	"license": "ISC",
+	"keywords": [
+		"nodejs",
+		"multilingual",
+		"docker",
+		"ai",
+		"customization",
+		"discord",
+		"discord-bot",
+		"openai",
+		"customizable",
+		"discord-js",
+		"rapidapi"
+	],
+	"author": "Wilzzu",
+	"license": "MIT",
 	"bugs": {
 		"url": "https://github.com/Wilzzu/botBob/issues"
 	},
@@ -24,5 +36,8 @@
 		"discord.js": "^14.14.1",
 		"dotenv": "^16.3.1",
 		"mongoose": "^8.1.0"
+	},
+	"engines": {
+		"node": ">=16.11.0"
 	}
 }

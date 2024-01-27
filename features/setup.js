@@ -100,8 +100,8 @@ const createEmbed = (client) => {
 module.exports = async function setup(guild, client, command) {
 	if (!guild) return console.error("Couldn't get server info");
 
-	// Update guildID in config only when bot joins the server
-	if (!command) updateConfigFile("guildID", guild.id);
+	// Update guildID in config if one doesn't exist
+	if (!config.guildID) updateConfigFile("guildID", guild.id);
 
 	// If debt channel is already set and the embed doesn't exist, send a new one
 	if (config.debtChannelID && !config.debtEmbedID && !command) {

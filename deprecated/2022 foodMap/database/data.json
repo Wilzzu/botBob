@@ -1,0 +1,26 @@
+[
+	{
+		"id": "1032051583551283270",
+		"content": {
+			"name": "Wilzzu",
+			"profilePic": "https://cdn.discordapp.com/avatars/208314368754974720/a_2b47acd74d0c3018bde9e85ec40a5243.gif",
+			"date": "19.10.2022",
+			"time": "18:05",
+			"lat": "60.1627248",
+			"long": "24.9467623",
+			"pic": "https://cdn.discordapp.com/attachments/911930298068004874/1197984954102071318/IMG_7731.jpg",
+			"rating": "5/5 ⭐⭐⭐⭐⭐"
+		},
+		"likes": {
+			"amount": 1,
+			"who": ["208314368538974125"]
+		},
+		"comments": [
+			{
+				"name": "Ministeri",
+				"img": "https://cdn.discordapp.com/avatars/199446129178312704/a6be90e162529b8fe90aeb50f062d240.webp",
+				"comment": "wow looks nice!"
+			}
+		]
+	}
+]
