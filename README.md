@@ -80,6 +80,7 @@ botBob is an advanced Discord bot built with the latest Discord.js version (v14)
 3. **Configuration:**
 
    - Rename the `example.env` file to `.env` and fill in the [environment variables](#environment-variables).
+   - Rename the database files found in `/databases` folder from `[name].example.json` to `[name].json`.
    - Rename the config files found in `/configs` folder from `[name].example.json` to `[name].json`. Follow the instructions in [Optional configuration](#optional-configuration) if you want to make any changes.
 
 4. **Deploy commands and run the bot:**
