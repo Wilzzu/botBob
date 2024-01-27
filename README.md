@@ -4,7 +4,7 @@
 <h4 align="center">A Multifunctional Discord Bot</h4>
 
 <p align="center">
-   <a href="https://github.com/wilzzu/botBob">
+   <a href="https://github.com/wilzzu/botBob/releases/latest">
        <img src="https://img.shields.io/github/v/release/wilzzu/botBob?style=flat-square&labelColor=black&color=blue&label=Latest%20Release" alt="Latest release">
    </a>
    <a href="https://hub.docker.com/r/wilzzu/botbob">
