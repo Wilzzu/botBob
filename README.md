@@ -218,7 +218,6 @@ Feel free to check out these details and screenshots showing how the features us
 ![foodBot website](https://i.imgur.com/mWFJlAD.jpeg)
 
 Users could share their food pictures with each other on the server. Each submission would show up on a website which had a map of all the posts. Other users could like and comment on the post and check all the other posts on the map.\
-
 Submitting a food post was done via a slash command, which made the bot send the user a direct message with instructions:
 
 1. First the user had to select their coordinates, which was done via the same website. The user could move a pin on the map and select where they were at, or user their phone's GPS to select it automatically for them.
