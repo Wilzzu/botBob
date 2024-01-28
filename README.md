@@ -256,4 +256,4 @@ Our Discord server got into CS:GO during the COVID-19 outbreak, so I built a bot
 
 ## License
 
-This project is licensed under the [MIT](https://choosealicense.com/licenses/mit/) license.
+This project is licensed under the [MIT](https://github.com/Wilzzu/botBob/blob/main/LICENSE) license.
