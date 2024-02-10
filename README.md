@@ -210,7 +210,7 @@ Feel free to check out these details and screenshots showing how the features us
 
 ### Weather News (2023)
 
-2023 was extraordinary hot, so I made a script that would send all the news articles that had anything to do with the weather. I scraped the info from one news site and the other had a dedicated API. The script ran until summer was over.
+2023 was extraordinary hot year, so I made a script that would send all the news articles that had anything to do with the weather. I scraped the info from one news site and the other had a dedicated API. The script ran until summer was over.
 
 ![Weather News](https://i.imgur.com/vMUX3Pv.png)
 
