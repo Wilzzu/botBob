@@ -1,11 +1,11 @@
 const axios = require("axios");
 const cheerio = require("cheerio");
 const { default: OpenAI } = require("openai");
-const { lang, mainChannelID } = require("../../configs/config.json");
+const { lang, mainChannelID, weather } = require("../../configs/config.json");
 const str = require("../../configs/languages.json");
 
 const openai = new OpenAI();
-let currentId = "none";
+let currentId = weather.lastNewsId;
 let client = null;
 
 const sendMessage = async (content, link) => {

@@ -10,6 +10,14 @@
 	"debtThreadID": "",
 	"timeoutChannelID": "",
 	"useMongoDB": false,
+	"weather": {
+		"lat": "60.1591",
+		"lon": "24.9329",
+		"units": "metric",
+		"observationStationID": "101009",
+		"weatherRoleID": "your-role-id",
+		"lastNewsId": "0"
+	},
 	"rapidAPI": {
 		"url": "https://open-ai25.p.rapidapi.com/ask",
 		"host": "open-ai25.p.rapidapi.com"

@@ -7,6 +7,7 @@ const { connectMongoose } = require("../utils/mongoose");
 const generateReserveResponses = require("../features/timeout/generateReserveResponses");
 const setActivity = require("../features/setActivity");
 const startWeather = require("../features/weather/weather");
+const startWeatherWarning = require("../features/weather/weatherWarning");
 
 module.exports = {
 	name: Events.ClientReady,
@@ -17,5 +18,6 @@ module.exports = {
 		if (timeout.aiResponses) generateReserveResponses();
 		setActivity(client);
 		startWeather(client);
+		startWeatherWarning(client);
 	},
 };

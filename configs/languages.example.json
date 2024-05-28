@@ -117,6 +117,12 @@
 			"rpsResults": "**${winner}** won!",
 			"rpsResultsTie": "**tie!**"
 		},
+		"weather": {
+			"warningTitleThunder": "⚡ THUNDER WARNING ⚡",
+			"warningDescThunder": "Thunderstorms detected in the area",
+			"warningTitleRain": "RAIN WARNING 🌧️",
+			"warningDescRain": "Rain showers detected in the area"
+		},
 		"error": {
 			"commandExec": "❌ There was an error executing the command!"
 		}
@@ -238,6 +244,12 @@
 			"rpsOtherTeamDidntVote": "Vastustaja tiimi ei äänestänyt",
 			"rpsResults": "**${winner}** voitti!",
 			"rpsResultsTie": "**tasapeli!**"
+		},
+		"weather": {
+			"warningTitleThunder": "⚡ UKKOSVAROITUS ⚡",
+			"warningDescThunder": "Ukkosta havaittu alueella",
+			"warningTitleRain": "SADEVAROITUS 🌧️",
+			"warningDescRain": "Sadekuuroja havaittu alueella"
 		},
 		"error": {
 			"commandExec": "❌ Komentoa suorittaessa tapahtui virhe!"
