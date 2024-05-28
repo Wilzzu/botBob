@@ -3,7 +3,9 @@ node_modules
 config.json
 config_prod.json
 languages.json
+languages_prod.json
 aiResponses.json
 debtsDb.json
 timeoutDb.json
 test.js
+todo.md

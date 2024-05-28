@@ -29,6 +29,16 @@
 		},
 		"activity": {
 			"interval": 600000
+		},
+		"weather": {
+			"enableNews": false,
+			"enableWarnings": false,
+			"lat": "60.1591",
+			"lon": "24.9329",
+			"units": "metric",
+			"observationStationID": "101009",
+			"weatherRoleID": "your-role-id",
+			"lastNewsId": "0"
 		}
 	},
 	"duplicateMessages": ["hello", "bye"],
