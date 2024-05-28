@@ -1,7 +1,11 @@
 const axios = require("axios");
 const cheerio = require("cheerio");
 const { default: OpenAI } = require("openai");
-const { lang, mainChannelID, weather } = require("../../configs/config.json");
+const {
+	lang,
+	mainChannelID,
+	features: { weather },
+} = require("../../configs/config.json");
 const str = require("../../configs/languages.json");
 
 const openai = new OpenAI();
@@ -65,11 +69,11 @@ const getArticles = async () => {
 		});
 };
 
-const startWeather = (bot) => {
-	console.log("Weather online!");
+const startWeatherNews = (bot) => {
+	console.log("Weather News online!");
 	client = bot;
 	getArticles();
 	setInterval(() => getArticles(), 1000 * 60);
 };
 
-module.exports = startWeather;
+module.exports = startWeatherNews;

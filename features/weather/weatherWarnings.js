@@ -1,6 +1,10 @@
 const axios = require("axios");
 const moment = require("moment-timezone");
-const { lang, mainChannelID, weather } = require("../../configs/config.json");
+const {
+	lang,
+	mainChannelID,
+	features: { weather },
+} = require("../../configs/config.json");
 const str = require("../../configs/languages.json");
 const { EmbedBuilder, roleMention } = require("discord.js");
 
@@ -122,11 +126,11 @@ async function fetchWeather() {
 	sendNotification(clearTime);
 }
 
-const startWeatherWarning = (bot) => {
-	console.log("Weather Warning online!");
+const startWeatherWarnings = (bot) => {
+	console.log("Weather Warnings online!");
 	client = bot;
 	fetchWeather();
 	setInterval(() => fetchWeather(), 1000 * 60 * 5);
 };
 
-module.exports = startWeatherWarning;
+module.exports = startWeatherWarnings;
