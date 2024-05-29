@@ -10,7 +10,7 @@ const { EmbedBuilder, roleMention } = require("discord.js");
 
 const weatherGroup = {
 	thunder: [200, 201, 202, 210, 211, 212, 221, 230, 231, 232],
-	rain: [500, 501, 502, 503, 504, 511, 520, 521, 522, 531],
+	rain: [302, 312, 314, 501, 502, 503, 504, 511, 521, 522, 531],
 };
 let lastWeatherGroup = null;
 let clearTimer = null;
