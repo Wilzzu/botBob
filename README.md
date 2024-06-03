@@ -1,4 +1,4 @@
-![Logo](https://i.imgur.com/i6z6oDw.png)
+![Banner](https://i.imgur.com/i6z6oDw.png)
 
 <h1 align="center">botBob</h1>
 <h4 align="center">A Multifunctional Discord Bot</h4>
@@ -25,14 +25,17 @@
 
 botBob is an advanced Discord bot built with the latest Discord.js version (v14)! It includes modular commands, AI integration and unique functionalities, like timeout voting and debt tracking. botBob was designed from the ground up to be fully customizable, enabling the user to edit every command, every string, and every value through the configs. The bot is built primarily for our private Discord server, but feel free to use it if any of the features sound useful to you!
 
+![Banner](https://i.imgur.com/GWw3TKC.png)
+
 ## Features
 
 - Vote Timeout
 - Debt Tracking
+- Weather News Summaries and Warnings
 - Custom User Responses
 - Respond to Specific Words
 - Rare Messages
-- AI integration using OpenAI through Rapid API
+- AI integration using OpenAI and Rapid API
 - Fully Customizable Commands
 - Multilingual Support
 
@@ -137,13 +140,27 @@ You can find the bot's Client ID under the `OAuth2 -> General` tab in the [Disco
 
 ---
 
-| Name            | Required | Description    |
-| --------------- | -------- | -------------- |
-| `RAPID_API_KEY` | `false`  | AI integration |
+| Name             | Required | Description                 |
+| ---------------- | -------- | --------------------------- |
+| `OPENAI_API_KEY` | `false`  | Weather news AI integration |
 
-For this project, I used the [OPEN AI by InfinitiSync](https://rapidapi.com/InfinitiSync/api/open-ai25) API. You can try using other AI API's found on [Rapid API](https://rapidapi.com/), but they are not guaranteed to work with the bot. To get the API key, subscribe to the API and copy the `X-RapidAPI-Key`.
+[OpenAI](https://openai.com/api/) is used for generating summaries of weather news articles. You can find the API key under the `API Keys` tab in the [OpenAI Dashboard](https://platform.openai.com/api-keys).
 
-![Rapid API key](https://i.imgur.com/C4aPJww.png)
+---
+
+| Name            | Required | Description                    |
+| --------------- | -------- | ------------------------------ |
+| `RAPID_API_KEY` | `false`  | Timeout message AI integration |
+
+[OPEN AI by InfinitiSync](https://rapidapi.com/InfinitiSync/api/open-ai25) API is used for generating AI timeout messages. You can try using other AI API's found on [Rapid API](https://rapidapi.com/), but they are not guaranteed to work with the bot. To get the API key, subscribe to the API and copy the `X-RapidAPI-Key`.
+
+---
+
+| Name                   | Required | Description                       |
+| ---------------------- | -------- | --------------------------------- |
+| `OPEN_WEATHER_API_KEY` | `false`  | Weather data for weather warnings |
+
+[OpenWeather API](https://openweathermap.org/api) is used to get weather data for weather warnings. You can get the API key by signing up and navigating to the [My API keys](https://home.openweathermap.org/api_keys) section.
 
 ---
 
@@ -166,19 +183,20 @@ You can fully customize every aspect of botBob by modifying the config files fou
   - Admin ID's
   - Timeout lengths and vote durations
   - Custom responses and rare messages
-  - Rapid API URL and host
+  - OpenAI and Rapid API configurations
 
 - `languages.json` file contains every string the bot uses and their translations:
   - Languages
   - Command names and descriptions
   - Activities
-  - AI Prompt
+  - AI Prompts
   - Error messages
 
 ### Enabling features
 
 - To enable MongoDB, set the `useMongoDB` field to `true` in `config.json`.
-- To enable Rapid API AI integration, set the `aiResponses` field to `true` in `config.json`.
+- To enable OpenAI weather news AI integration, set the `enableNews` field to `true`.
+- To enable Rapid API timeout response AI integration, set the `aiResponses` field to `true`.
 
 > [!IMPORTANT]
 > When enabling these features, make sure their [environment variables](#environment-variables) are set in the `.env` file or are passed to `docker run`.
@@ -211,6 +229,8 @@ Feel free to check out these details and screenshots showing how the features us
 ### Weather News (2023)
 
 2023 was extraordinary hot year, so I made a script that would send all the news articles that had anything to do with the weather. I scraped the info from one news site and the other had a dedicated API. The script ran until summer was over.
+
+This was different from the current new weather news feature, which uses OpenAI to generate summaries of the articles.
 
 ![Weather News](https://i.imgur.com/vMUX3Pv.png)
 

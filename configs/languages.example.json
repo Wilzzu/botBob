@@ -1,7 +1,8 @@
 {
 	"en-US": {
 		"ai": {
-			"timeout": "Come up with a comment for a user who was voted to be timed out on a Discord server. Add this user's name to the comment exactly like this: [username]. Be as creative and funny as possible, compare the timeout to something. You can also make fun of the user. Add couple emojis to the comment. Also add couple hashtags to the end of the comment. Only give me the comment as the response."
+			"timeout": "Come up with a comment for a user who was voted to be timed out on a Discord server. Add this user's name to the comment exactly like this: [username]. Be as creative and funny as possible, compare the timeout to something. Only return the comment as the response.",
+			"weather": "Make a short comment about the weather based on the following article. It should be something you would see in a normal Discord chat conversation. Output a JSON object with message key. Article:"
 		},
 		"activities": {
 			"Playing": ["🎮 Counter-Strike", "🎮 Minecraft"],
@@ -129,7 +130,8 @@
 	},
 	"fi": {
 		"ai": {
-			"timeout": "Come up with a comment for a user who was voted to be timed out on a Discord server. Add this user's name to the comment exactly like this: [username]. Be as creative and funny as possible, compare the timeout to something. You can also make fun of the user. Add couple emojis to the comment. Also add couple hashtags to the end of the comment. The comment must be in Finnish, except only the [username] part. Only give me the comment as the response."
+			"timeout": "Come up with a comment for a user who was voted to be timed out on a Discord server. Add this user's name to the comment exactly like this: [username]. Be as creative and funny as possible, compare the timeout to something. The comment must be in Finnish, except only the [username] part. Only return the comment as the response.",
+			"weather": "Make a short comment about the weather based on the following article. It should be something you would see in a normal Discord chat conversation. The comment must be in Finnish and output a JSON object with message key. Article:"
 		},
 		"activities": {
 			"Playing": ["🎮 Counter-Strike", "🎮 Minecraft"],

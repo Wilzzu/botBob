@@ -10,6 +10,9 @@
 	"debtThreadID": "",
 	"timeoutChannelID": "",
 	"useMongoDB": false,
+	"openAI": {
+		"model": "gpt-4o"
+	},
 	"rapidAPI": {
 		"url": "https://open-ai25.p.rapidapi.com/ask",
 		"host": "open-ai25.p.rapidapi.com"
