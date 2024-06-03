@@ -4,6 +4,7 @@ const { default: OpenAI } = require("openai");
 const {
 	lang,
 	mainChannelID,
+	openAI: openAISettings,
 	features: { weather },
 } = require("../../configs/config.json");
 const str = require("../../configs/languages.json");
@@ -27,7 +28,7 @@ const generateSummary = async (content, link) => {
 			},
 			{ role: "user", content: `${str[lang].ai.weather} ${content.substring(0, 1400)}` },
 		],
-		model: "gpt-3.5-turbo-0125",
+		model: openAISettings.model,
 		response_format: { type: "json_object" },
 		max_tokens: 3000,
 	});
