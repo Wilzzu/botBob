@@ -25,7 +25,7 @@
 
 botBob is an advanced Discord bot built with the latest Discord.js version (v14)! It includes modular commands, AI integration and unique functionalities, like timeout voting and debt tracking. botBob was designed from the ground up to be fully customizable, enabling the user to edit every command, every string, and every value through the configs. The bot is built primarily for our private Discord server, but feel free to use it if any of the features sound useful to you!
 
-![Screenshots](https://i.imgur.com/GWw3TKC.png)
+![Screenshots](https://i.imgur.com/0bAK03E.png)
 
 ## Features
 
