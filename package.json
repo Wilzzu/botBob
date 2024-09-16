@@ -38,7 +38,7 @@
 		"dotenv": "^16.4.5",
 		"moment-timezone": "^0.5.45",
 		"mongoose": "^8.6.2",
-		"openai": "^4.58.1"
+		"openai": "^4.61.0"
 	},
 	"engines": {
 		"node": ">=16.11.0"
