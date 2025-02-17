@@ -37,7 +37,7 @@
 		"discord.js": "^14.17.3",
 		"dotenv": "^16.4.7",
 		"moment-timezone": "^0.5.47",
-		"mongoose": "^8.10.0",
+		"mongoose": "^8.10.1",
 		"openai": "^4.83.0"
 	},
 	"engines": {
