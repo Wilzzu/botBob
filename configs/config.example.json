@@ -45,9 +45,14 @@
 		},
 		"clips": {
 			"enableClips": false,
-			"url": "https://prt.allstar.gg",
-			"cron": "0 0 * * *",
-			"ids": ["STEAMID64", "STEAMID64"]
+			"channelId": "your-discord-channel-id",
+			"clubId": "your-leetify-club-id",
+			"cron": "0 * * * *",
+			"users": [
+				{ "steam": "Steam64ID", "discord": "DiscordUserID" },
+				{ "steam": "Steam64ID", "discord": "DiscordUserID" }
+			],
+			"latestHighlightId": null
 		}
 	},
 	"duplicateMessages": ["hello", "bye"],
