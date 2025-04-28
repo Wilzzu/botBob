@@ -42,6 +42,12 @@
 			"observationStationID": "101009",
 			"weatherRoleID": "your-role-id",
 			"lastNewsId": "0"
+		},
+		"clips": {
+			"enableClips": false,
+			"url": "https://prt.allstar.gg",
+			"cron": "0 0 * * *",
+			"ids": ["STEAMID64", "STEAMID64"]
 		}
 	},
 	"duplicateMessages": ["hello", "bye"],
