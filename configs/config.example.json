@@ -42,6 +42,17 @@
 			"observationStationID": "101009",
 			"weatherRoleID": "your-role-id",
 			"lastNewsId": "0"
+		},
+		"clips": {
+			"enableClips": false,
+			"channelId": "your-discord-channel-id",
+			"clubId": "your-leetify-club-id",
+			"cron": "0 * * * *",
+			"users": [
+				{ "steam": "Steam64ID", "discord": "DiscordUserID" },
+				{ "steam": "Steam64ID", "discord": "DiscordUserID" }
+			],
+			"latestHighlightId": null
 		}
 	},
 	"duplicateMessages": ["hello", "bye"],
