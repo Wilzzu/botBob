@@ -39,7 +39,7 @@
 		"moment-timezone": "^0.5.48",
 		"mongoose": "^8.14.0",
 		"node-cron": "^3.0.3",
-		"openai": "^4.96.0"
+		"openai": "^4.97.0"
 	},
 	"engines": {
 		"node": ">=16.11.0"
