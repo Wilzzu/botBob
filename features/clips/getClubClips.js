@@ -5,7 +5,7 @@ const {
 	features: { clips },
 } = config;
 
-let latestHighlightId = clips.latestHighlightId;
+let latestHighlights = clips.latestHighlights;
 
 const parseVideoUrl = (url) => {
 	if (!url) return;
@@ -36,11 +36,14 @@ const getClubHighlights = async () => {
 		});
 
 	if (!data) return null;
-	const newHighlights = [];
 
 	// Parse clip data
+	const newHighlights = [];
+	const foundHighlights = [];
 	for (const clip of data) {
-		if (clip.id === latestHighlightId) break; // Stop parsing when latest clip is reached
+		if (clip.status !== "completed") continue; // Skip if clip is still processing
+		foundHighlights.push(clip.id); // Add clip to found highlights
+		if (latestHighlights.includes(clip.id)) continue; // Skip clip if it has already been sent
 
 		const videoData = parseVideoUrl(clip?.thumbnailUrl);
 		newHighlights.push({
@@ -57,9 +60,9 @@ const getClubHighlights = async () => {
 	// Return if no new clips
 	if (!newHighlights.length) return null;
 
-	// Update latest highlight ID
-	latestHighlightId = newHighlights[0].id;
-	clips.latestHighlightId = newHighlights[0].id;
+	// Update latestHighlights array
+	latestHighlights = foundHighlights;
+	clips.latestHighlights = foundHighlights;
 	fs.writeFile("./configs/config.json", JSON.stringify(config, null, 4), (err) => {
 		if (err) console.log(err);
 	});
