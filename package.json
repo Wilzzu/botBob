@@ -38,7 +38,7 @@
 		"dotenv": "^16.5.0",
 		"moment-timezone": "^0.6.0",
 		"mongoose": "^8.15.1",
-		"node-cron": "^4.0.7",
+		"node-cron": "^4.1.0",
 		"openai": "^5.0.1"
 	},
 	"engines": {
