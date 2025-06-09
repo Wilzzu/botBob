@@ -1,16 +1,16 @@
 const axios = require("axios");
-const { rapidAPI } = require("../configs/config.json");
+const { aiModels } = require("../configs/config.json");
 
 // Get AI response from RapidAPI and return it as a string
 module.exports = async function getAIResponse(prompt) {
 	console.log("Generating new AI response...");
 	const options = {
 		method: "POST",
-		url: rapidAPI.url,
+		url: aiModels.rapidAPI.url,
 		headers: {
 			"content-type": "application/json",
 			"X-RapidAPI-Key": process.env.RAPID_API_KEY,
-			"X-RapidAPI-Host": rapidAPI.host,
+			"X-RapidAPI-Host": aiModels.rapidAPI.baseUrl,
 		},
 		data: { query: prompt },
 	};

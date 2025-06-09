@@ -10,12 +10,20 @@
 	"debtThreadID": "",
 	"timeoutChannelID": "",
 	"useMongoDB": false,
-	"openAI": {
-		"model": "gpt-4o"
-	},
-	"rapidAPI": {
-		"url": "https://open-ai25.p.rapidapi.com/ask",
-		"host": "open-ai25.p.rapidapi.com"
+	"aiModels": {
+		"openAI": {
+			"model": "gpt-4.1-mini",
+			"baseUrl": "https://api.openai.com/v1"
+		},
+		"groq": {
+			"model": "meta-llama/llama-4-maverick-17b-128e-instruct",
+			"baseUrl": "https://api.groq.com/openai/v1"
+		},
+		"rapidAPI": {
+			"model": "llama-3.3-70b-versatile",
+			"baseUrl": "https://open-ai25.p.rapidapi.com/ask",
+			"host": "open-ai25.p.rapidapi.com"
+		}
 	},
 	"features": {
 		"timeout": {
@@ -48,11 +56,11 @@
 			"channelId": "your-discord-channel-id",
 			"clubId": "your-leetify-club-id",
 			"cron": "0 * * * *",
+			"latestHighlights": ["highlight-id", "highlight-id"],
 			"users": [
-				{ "steam": "Steam64ID", "discord": "DiscordUserID" },
-				{ "steam": "Steam64ID", "discord": "DiscordUserID" }
-			],
-			"latestHighlightId": null
+				{ "steam": "Steam64ID", "discord": "discord-user-id" },
+				{ "steam": "Steam64ID", "discord": "discord-user-id" }
+			]
 		}
 	},
 	"duplicateMessages": ["hello", "bye"],

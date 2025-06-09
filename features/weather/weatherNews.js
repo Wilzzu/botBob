@@ -4,12 +4,19 @@ const { default: OpenAI } = require("openai");
 const {
 	lang,
 	mainChannelID,
-	openAI: openAISettings,
+	aiModels,
 	features: { weather },
 } = require("../../configs/config.json");
 const str = require("../../configs/languages.json");
-
-const openai = new OpenAI();
+const openai = new OpenAI({
+	apiKey:
+		weather.aiModel === "openAI"
+			? process.env.OPENAI_API_KEY
+			: weather.aiModel === "groq"
+			? process.env.GROQ_API_KEY
+			: process.env.RAPID_API_KEY,
+	baseURL: aiModels[weather.aiModel].baseUrl,
+});
 let currentId = weather.lastNewsId;
 let client = null;
 
@@ -19,22 +26,32 @@ const sendMessage = async (content, link) => {
 };
 
 const generateSummary = async (content, link) => {
-	const completion = await openai.chat.completions.create({
-		messages: [
-			{
-				role: "system",
-				content:
-					"You are a helpful assistant designed to create a chat message and output it as a JSON.",
-			},
-			{ role: "user", content: `${str[lang].ai.weather} ${content.substring(0, 1400)}` },
-		],
-		model: openAISettings.model,
-		response_format: { type: "json_object" },
-		max_tokens: 3000,
-	});
-	if (!completion?.choices[0]?.message?.content) return console.log("No content");
-	const summary = JSON.parse(completion.choices[0].message.content);
-	sendMessage(summary[Object.keys(summary)[0]], link);
+	try {
+		const completion = await openai.chat.completions.create({
+			model: aiModels[weather.aiModel].model,
+			messages: [
+				{
+					role: "system",
+					content:
+						"You are a creative assistant that outputs realistic chat messages in JSON format only.",
+				},
+				{
+					role: "user",
+					content: `${
+						str[lang].ai.weather[Math.floor(Math.random() * str[lang].ai.weather.length)]
+					} ${content}`,
+				},
+			],
+			response_format: { type: "json_object" },
+			temperature: 0.9,
+			top_p: 0.9,
+		});
+		if (!completion?.choices[0]?.message?.content) return console.log("No content");
+		const summary = JSON.parse(completion.choices[0].message.content);
+		sendMessage(summary[Object.keys(summary)[0]], link);
+	} catch (err) {
+		console.error("Couldn't summarize weather article:", err);
+	}
 };
 
 const getContent = async (id) => {
