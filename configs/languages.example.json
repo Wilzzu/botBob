@@ -57,6 +57,20 @@
 					"alreadyAdmin": "❌ User already has admin permissions!",
 					"notMainAdmin": "❌ You don't have permissions to add admins!"
 				}
+			},
+			"say": {
+				"name": "say",
+				"description": "Say something as the bot",
+				"channel": "channel",
+				"channelDesc": "Text channel ID where the message will be sent",
+				"message": "message",
+				"messageDesc": "Message content",
+				"errors": {
+					"notSlash": "❌ Use the command `/${command}` !",
+					"missingParams": "❌ Some parameters are missing!",
+					"errSendingMsg": "❌ An error occurred while sending the message!",
+					"notMainAdmin": "❌ You don't have permissions to send messages as the bot!"
+				}
 			}
 		},
 		"debt": {
@@ -185,6 +199,20 @@
 					"botUser": "❌ Et voi lisätä admin oikeuksia botille!",
 					"alreadyAdmin": "❌ Käyttäjällä on jo admin oikeudet!",
 					"notMainAdmin": "❌ Sinulla ei ole oikeuksia lisätä admineita!"
+				}
+			},
+			"say": {
+				"name": "sano",
+				"description": "Sano jotain bottina",
+				"channel": "kanava",
+				"channelDesc": "Tekstikanava minne viesti lähetetään",
+				"message": "viesti",
+				"messageDesc": "Viestin sisältö",
+				"errors": {
+					"notSlash": "❌ Käytä komentoa `/${command}` !",
+					"missingParams": "❌ Jotkut arvot puuttuvat!",
+					"errSendingMsg": "❌ Tapahtui virhe viestiä lähetettäessä!",
+					"notMainAdmin": "❌ Sinulla ei ole oikeuksia lähettää viestiä bottina!"
 				}
 			}
 		},

@@ -10,6 +10,7 @@ const {
 	ActionRowBuilder,
 	ButtonStyle,
 	channelLink,
+	MessageFlags,
 } = require("discord.js");
 const validateVoteStart = require("./validateVoteStart");
 const updateVote = require("./updateVote");
@@ -63,7 +64,7 @@ const handleTimeout = async (interaction, user, mainChannelID, timeoutChannelID)
 	if (!validation.valid)
 		return await interaction.reply({
 			content: validation.reason.replace("${username}", userMention(user.id)),
-			ephemeral: validation.ephemeral,
+			flags: validation.ephemeral ? MessageFlags.Ephemeral : null,
 		});
 
 	// Add user to usersBeingTimedOut
@@ -104,7 +105,7 @@ const handleTimeout = async (interaction, user, mainChannelID, timeoutChannelID)
 				"${channel}",
 				channelLink(mainChannelID)
 			),
-			ephemeral: true,
+			flags: MessageFlags.Ephemeral,
 		});
 	}
 

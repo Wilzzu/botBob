@@ -1,4 +1,4 @@
-const { SlashCommandBuilder, userMention } = require("discord.js");
+const { SlashCommandBuilder, userMention, MessageFlags } = require("discord.js");
 const { lang } = require("../../configs/config.json");
 const str = require("../../configs/languages.json");
 const fs = require("fs");
@@ -31,20 +31,20 @@ module.exports = {
 		if (!user) {
 			return await interaction.reply({
 				content: str[lang].commands.admin.errors.invalidUser,
-				ephemeral: true,
+				flags: MessageFlags.Ephemeral,
 			});
 		}
 		if (user.bot) {
 			return await interaction.reply({
 				content: str[lang].commands.admin.errors.botUser,
-				ephemeral: true,
+				flags: MessageFlags.Ephemeral,
 			});
 		}
 		const config = JSON.parse(fs.readFileSync("./configs/config.json", "utf-8"));
 		if (config.admins.includes(user.id)) {
 			return await interaction.reply({
 				content: str[lang].commands.admin.errors.alreadyAdmin,
-				ephemeral: true,
+				flags: MessageFlags.Ephemeral,
 			});
 		}
 
@@ -52,7 +52,7 @@ module.exports = {
 		if (config.mainAdmin !== interaction.user.id) {
 			return await interaction.reply({
 				content: str[lang].commands.admin.errors.notMainAdmin,
-				ephemeral: true,
+				flags: MessageFlags.Ephemeral,
 			});
 		}
 
@@ -65,7 +65,7 @@ module.exports = {
 		// Send confirmation
 		await interaction.reply({
 			content: str[lang].commands.admin.success.replace("${username}", userMention(user.id)),
-			ephemeral: true,
+			flags: MessageFlags.Ephemeral,
 		});
 	},
 };

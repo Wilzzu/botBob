@@ -1,4 +1,4 @@
-const { EmbedBuilder, ComponentType, channelLink } = require("discord.js");
+const { EmbedBuilder, ComponentType, channelLink, MessageFlags } = require("discord.js");
 const {
 	features: { timeout },
 	lang,
@@ -89,11 +89,17 @@ module.exports = function updateVote(
 	voteCollector.on("collect", async (i) => {
 		// Check if user already voted
 		if (findUserById(i.user.id, votes) || findUserById(i.user.id, invalidVotes))
-			return await i.reply({ content: str[lang].timeout.alreadyVoted, ephemeral: true });
+			return await i.reply({
+				content: str[lang].timeout.alreadyVoted,
+				flags: MessageFlags.Ephemeral,
+			});
 
 		// Check if user is trying to vote no on themselves
 		if (i.customId === "voteNo" && i.user.id === user.id)
-			return await i.reply({ content: str[lang].timeout.cantVoteNoOnYourself, ephemeral: true });
+			return await i.reply({
+				content: str[lang].timeout.cantVoteNoOnYourself,
+				flags: MessageFlags.Ephemeral,
+			});
 
 		// Check if user is not in the same voice channel
 		if (
@@ -105,7 +111,7 @@ module.exports = function updateVote(
 					"${voiceChannel}",
 					channelLink(voiceChannelID)
 				),
-				ephemeral: true,
+				flags: MessageFlags.Ephemeral,
 			});
 
 		// Add user to votes and update embed

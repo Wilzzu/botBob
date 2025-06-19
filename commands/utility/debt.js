@@ -1,4 +1,4 @@
-const { SlashCommandBuilder } = require("discord.js");
+const { SlashCommandBuilder, MessageFlags } = require("discord.js");
 const { lang } = require("../../configs/config.json");
 const str = require("../../configs/languages.json");
 const handleDebt = require("../../features/debt/handleDebt");
@@ -52,13 +52,13 @@ module.exports = {
 		if (from.bot || to.bot) {
 			return await interaction.reply({
 				content: str[lang].commands.debt.errors.botUser,
-				ephemeral: true,
+				flags: MessageFlags.Ephemeral,
 			});
 		}
 		if (from.id === to.id) {
 			return await interaction.reply({
 				content: str[lang].commands.debt.errors.sameUser,
-				ephemeral: true,
+				flags: MessageFlags.Ephemeral,
 			});
 		}
 
@@ -67,7 +67,7 @@ module.exports = {
 		if (!config.admins.includes(interaction.user.id) && config.mainAdmin !== interaction.user.id) {
 			return await interaction.reply({
 				content: str[lang].commands.debt.errors.notAdmin,
-				ephemeral: true,
+				flags: MessageFlags.Ephemeral,
 			});
 		}
 
@@ -78,7 +78,7 @@ module.exports = {
 					"${command}",
 					str[lang].commands.setup.name
 				),
-				ephemeral: true,
+				flags: MessageFlags.Ephemeral,
 			});
 		}
 

@@ -3,6 +3,7 @@ const { updateDebtEmbed } = require("./modifyDebtEmbed");
 const { lang } = require("../../configs/config.json");
 const str = require("../../configs/languages.json");
 const sendConfirmation = require("./sendConfirmation");
+const { MessageFlags } = require("discord.js");
 
 // Create string for confirmation message
 const confirmationContent = (from, to, amount) => {
@@ -13,7 +14,7 @@ const confirmationContent = (from, to, amount) => {
 
 // Respond to interaction
 const respond = (i, content) => {
-	i.reply({ content: content, ephemeral: true });
+	i.reply({ content: content, flags: MessageFlags.Ephemeral });
 	setTimeout(() => i.deleteReply(), 5000);
 };
 

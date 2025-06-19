@@ -1,4 +1,4 @@
-const { SlashCommandBuilder } = require("discord.js");
+const { SlashCommandBuilder, MessageFlags } = require("discord.js");
 const { lang } = require("../../configs/config.json");
 const str = require("../../configs/languages.json");
 const { handleTimeout } = require("../../features/timeout/handleTimeout");
@@ -25,12 +25,12 @@ module.exports = {
 		if (!user)
 			return await interaction.reply({
 				content: str[lang].commands.timeout.errors.noUser,
-				ephemeral: true,
+				flags: MessageFlags.Ephemeral,
 			});
 		if (user.bot)
 			return await interaction.reply({
 				content: str[lang].commands.timeout.errors.botUser,
-				ephemeral: true,
+				flags: MessageFlags.Ephemeral,
 			});
 
 		// Check if channels exist
@@ -41,7 +41,7 @@ module.exports = {
 					"${command}",
 					str[lang].commands.setup.name
 				),
-				ephemeral: true,
+				flags: MessageFlags.Ephemeral,
 			});
 		if (!config.timeoutChannelID)
 			return await interaction.reply({
@@ -49,7 +49,7 @@ module.exports = {
 					"${command}",
 					str[lang].commands.setup.name
 				),
-				ephemeral: true,
+				flags: MessageFlags.Ephemeral,
 			});
 
 		// Start timeout vote

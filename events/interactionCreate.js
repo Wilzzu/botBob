@@ -1,4 +1,4 @@
-const { Events } = require("discord.js");
+const { Events, MessageFlags } = require("discord.js");
 const { lang } = require("../configs/config.json");
 const str = require("../configs/languages.json");
 
@@ -21,12 +21,12 @@ module.exports = {
 			if (interaction.replied || interaction.deferred) {
 				await interaction.followUp({
 					content: str[lang].error.commandExec,
-					ephemeral: true,
+					flags: MessageFlags.Ephemeral,
 				});
 			} else {
 				await interaction.reply({
 					content: str[lang].error.commandExec,
-					ephemeral: true,
+					flags: MessageFlags.Ephemeral,
 				});
 			}
 		}

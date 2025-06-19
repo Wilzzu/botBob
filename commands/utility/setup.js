@@ -1,4 +1,4 @@
-const { SlashCommandBuilder } = require("discord.js");
+const { SlashCommandBuilder, MessageFlags } = require("discord.js");
 const { lang } = require("../../configs/config.json");
 const str = require("../../configs/languages.json");
 const setup = require("../../features/setup");
@@ -14,7 +14,7 @@ module.exports = {
 		if (interaction.user.id !== cfg.mainAdmin)
 			return interaction.reply({
 				content: str[lang].setup.notAuthorized,
-				ephemeral: true,
+				flags: MessageFlags.Ephemeral,
 			});
 
 		// Start setup

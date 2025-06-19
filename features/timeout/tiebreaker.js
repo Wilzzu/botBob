@@ -4,6 +4,7 @@ const {
 	ButtonBuilder,
 	ButtonStyle,
 	ComponentType,
+	MessageFlags,
 } = require("discord.js");
 const {
 	features: { timeout },
@@ -212,7 +213,10 @@ module.exports = function tiebreaker(
 	rpsCollector.on("collect", async (i) => {
 		// Check if user voted earlier, those who didn't aren't eligible to play
 		if (findUserById(i.user.id, votes) === null)
-			return await i.reply({ content: str[lang].timeout.rpsNotEligible, ephemeral: true });
+			return await i.reply({
+				content: str[lang].timeout.rpsNotEligible,
+				flags: MessageFlags.Ephemeral,
+			});
 
 		// Check if user has already chosen
 		if (findUserById(i.user.id, votes).rps)
@@ -221,7 +225,7 @@ module.exports = function tiebreaker(
 					"${choice}",
 					findUserById(i.user.id, votes).rps.emoji
 				),
-				ephemeral: true,
+				flags: MessageFlags.Ephemeral,
 			});
 
 		// Update user's choice

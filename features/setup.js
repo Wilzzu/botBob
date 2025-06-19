@@ -6,6 +6,7 @@ const {
 	ComponentType,
 	ChannelSelectMenuBuilder,
 	channelLink,
+	MessageFlags,
 } = require("discord.js");
 const config = require("../configs/config.json");
 const str = require("../configs/languages.json");
@@ -151,7 +152,10 @@ module.exports = async function setup(guild, client, command) {
 	buttonCollector.on("collect", async (i) => {
 		// Check if user is the one who invited the bot
 		if (i.user.id !== config.mainAdmin)
-			return await i.reply({ content: str[config.lang].setup.notAuthorized, ephemeral: true });
+			return await i.reply({
+				content: str[config.lang].setup.notAuthorized,
+				flags: MessageFlags.Ephemeral,
+			});
 
 		// Create channel select menu for the selected button's channel
 		const helpText = str[config.lang].setup.channelSelectHelp.replace(
