@@ -53,13 +53,23 @@
 		},
 		"clips": {
 			"enableClips": false,
-			"channelId": "your-discord-channel-id",
+			"channelId": "your-discord-text-or-forum-channel-id",
 			"clubId": "your-leetify-club-id",
 			"cron": "0 * * * *",
 			"latestHighlights": ["highlight-id", "highlight-id"],
 			"users": [
-				{ "steam": "Steam64ID", "discord": "discord-user-id" },
-				{ "steam": "Steam64ID", "discord": "discord-user-id" }
+				{
+					"name": "name",
+					"steam": "Steam64ID",
+					"discord": "discord-user-id",
+					"threadId": "null | existing-thread-id"
+				},
+				{
+					"name": "name",
+					"steam": "Steam64ID",
+					"discord": "discord-user-id",
+					"threadId": "null | existing-thread-id"
+				}
 			]
 		}
 	},
