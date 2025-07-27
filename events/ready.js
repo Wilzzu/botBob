@@ -9,6 +9,7 @@ const startWeatherNews = require("../features/weather/weatherNews");
 const startWeatherWarnings = require("../features/weather/weatherWarnings");
 const startClips = require("../features/clips/clips");
 const setActivity = require("../features/setActivity");
+const addOldClipsToForum = require("../utils/addOldClipsToForum");
 
 module.exports = {
 	name: Events.ClientReady,
@@ -20,6 +21,7 @@ module.exports = {
 		if (weather.enableNews) startWeatherNews(client);
 		if (weather.enableWarnings) startWeatherWarnings(client);
 		if (clips.enableClips) startClips(client);
+		if (clips.addOldClips) addOldClipsToForum(client);
 		setActivity(client);
 	},
 };
