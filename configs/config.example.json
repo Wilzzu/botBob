@@ -53,6 +53,7 @@
 		},
 		"clips": {
 			"enableClips": false,
+			"addOldClips": false,
 			"channelId": "your-discord-text-or-forum-channel-id",
 			"clubId": "your-leetify-club-id",
 			"cron": "0 * * * *",
