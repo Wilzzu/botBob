@@ -62,14 +62,31 @@
 				"name": "say",
 				"description": "Say something as the bot",
 				"channel": "channel",
-				"channelDesc": "Text channel ID where the message will be sent",
+				"channelDesc": "Text channel where the message will be sent",
 				"message": "message",
 				"messageDesc": "Message content",
+				"messageSentTo": "✅ Message sent to",
 				"errors": {
 					"notSlash": "❌ Use the command `/${command}` !",
 					"missingParams": "❌ Some parameters are missing!",
 					"errSendingMsg": "❌ An error occurred while sending the message!",
 					"notMainAdmin": "❌ You don't have permissions to send messages as the bot!"
+				}
+			},
+			"deleteMessage": {
+				"name": "delete-message",
+				"description": "Delete a message sent by this bot",
+				"message": "message",
+				"messageDesc": "Message ID",
+				"channel": "channel",
+				"channelDesc": "Text channel where the message is. Leave empty if you want to use the current channel",
+				"messageDeleted": "✅ Message deleted!",
+				"errors": {
+					"notSlash": "❌ Use the command `/${command}` !",
+					"missingParams": "❌ Some parameters are missing!",
+					"errDeletingMsg": "❌ An error occurred while deleting the message!",
+					"notMainAdmin": "❌ You don't have permissions to delete messages!",
+					"notBotMessage": "❌ You can only remove messages sent by this bot!"
 				}
 			}
 		},
@@ -205,14 +222,31 @@
 				"name": "sano",
 				"description": "Sano jotain bottina",
 				"channel": "kanava",
-				"channelDesc": "Tekstikanava minne viesti lähetetään",
+				"channelDesc": "Tekstikanava jonne viesti lähetetään",
 				"message": "viesti",
 				"messageDesc": "Viestin sisältö",
+				"messageSentTo": "✅ Viesti lähetettiin kanavalle",
 				"errors": {
 					"notSlash": "❌ Käytä komentoa `/${command}` !",
 					"missingParams": "❌ Jotkut arvot puuttuvat!",
 					"errSendingMsg": "❌ Tapahtui virhe viestiä lähetettäessä!",
 					"notMainAdmin": "❌ Sinulla ei ole oikeuksia lähettää viestiä bottina!"
+				}
+			},
+			"deleteMessage": {
+				"name": "poista-viesti",
+				"description": "Poista botin lähettämä viesti",
+				"message": "viesti",
+				"messageDesc": "Viestin ID",
+				"channel": "kanava",
+				"channelDesc": "Tekstikanava jossa viesti on. Jätä tyhjäksi jos haluat käyttää nykyistä kanavaa",
+				"messageDeleted": "✅ Viesti poistettu!",
+				"errors": {
+					"notSlash": "❌ Käytä komentoa `/${command}` !",
+					"missingParams": "❌ Jotkut arvot puuttuvat!",
+					"errDeletingMsg": "❌ Tapahtui virhe viestiä poistaessa!",
+					"notMainAdmin": "❌ Sinulla ei ole oikeuksia poistaa viestejä!",
+					"notBotMessage": "❌ Voit poistaa vain botin lähettämiä viestejä!"
 				}
 			}
 		},

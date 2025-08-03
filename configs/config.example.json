@@ -44,6 +44,7 @@
 		"weather": {
 			"enableNews": false,
 			"enableWarnings": false,
+			"aiModel": "groq",
 			"lat": "60.1591",
 			"lon": "24.9329",
 			"units": "metric",

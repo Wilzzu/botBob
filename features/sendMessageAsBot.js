@@ -6,7 +6,7 @@ module.exports = async function sendMessageAsBot(interaction, message, channel) 
 	try {
 		await channel.send(message);
 		interaction.reply({
-			content: "Message sent to: " + channelMention(channel.id) + "!",
+			content: `${str[lang].commands.say.messageSentTo} ${channelMention(channel.id)}`,
 			flags: MessageFlags.Ephemeral,
 		});
 	} catch (error) {

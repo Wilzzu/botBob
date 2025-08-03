@@ -35,6 +35,7 @@ botBob is an advanced Discord bot built with the latest Discord.js version (v14)
 - Custom User Responses
 - Respond to Specific Words
 - Rare Messages
+- Send and delete custom messages
 - AI integration using OpenAI and Rapid API
 - Fully Customizable Commands
 - Multilingual Support
