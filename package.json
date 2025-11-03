@@ -34,7 +34,7 @@
 	"dependencies": {
 		"axios": "^1.12.2",
 		"cheerio": "^1.1.2",
-		"discord.js": "^14.24.0",
+		"discord.js": "^14.24.2",
 		"dotenv": "^17.2.3",
 		"moment-timezone": "^0.6.0",
 		"mongoose": "^8.19.2",
