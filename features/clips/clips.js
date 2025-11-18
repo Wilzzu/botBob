@@ -18,7 +18,7 @@ const clipContent = (user, clip) => {
 };
 
 const handleForum = async (forum, user, clip) => {
-	const thread = forum.threads.cache.find((thread) => thread.id === user?.threadId);
+	const thread = user?.threadId ? await forum.threads.fetch(user?.threadId) : null;
 	const member = forum.guild.members.cache.get(user?.discord);
 	const username = member
 		? member.nickname || member.user.globalName || member.user.username
