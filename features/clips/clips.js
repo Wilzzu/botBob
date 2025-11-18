@@ -26,6 +26,7 @@ const handleForum = async (forum, user, clip) => {
 
 	// If thread already exists for the user, update the name if needed and send the clip
 	if (thread) {
+		if (thread.archived) await thread.setArchived(false);
 		if (thread.name !== username) await thread.setName(username);
 		await thread.send(clipContent(user, clip));
 		return;
