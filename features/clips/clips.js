@@ -12,23 +12,27 @@ let client;
 let clipUsers = clips.users;
 let updateConfigUsers = false;
 
-const clipContent = (user, clip) => {
-	const username = user ? userMention(user.discord) : clip.username;
+const clipContent = (member, clip) => {
+	const username = member ? userMention(member.user.id) : clip.username;
 	return `## 🎬 ${username} - [${clip.desc}](${clip?.videoUrl || clip.clipPageUrl})`;
 };
 
-const handleForum = async (forum, user, clip) => {
-	const thread = user?.threadId ? await forum.threads.fetch(user?.threadId) : null;
-	const member = forum.guild.members.cache.get(user?.discord);
+const handleForum = async (forum, user, member, clip) => {
+	const thread = user?.threadId
+		? await forum.threads
+				.fetch(user?.threadId)
+				.catch(() => console.error("Clips | Thread not found:", user?.threadId))
+		: null;
+
 	const username = member
-		? member.nickname || member.user.globalName || member.user.username
+		? member?.nickname || member?.user?.globalName || member.user.username
 		: clip.username;
 
 	// If thread already exists for the user, update the name if needed and send the clip
 	if (thread) {
 		if (thread.archived) await thread.setArchived(false);
-		if (thread.name !== username) await thread.setName(username);
-		await thread.send(clipContent(user, clip));
+		if (username && thread.name !== username) await thread.setName(username);
+		await thread.send(clipContent(member, clip));
 		return;
 	}
 
@@ -37,7 +41,7 @@ const handleForum = async (forum, user, clip) => {
 		name: username,
 		autoArchiveDuration: ThreadAutoArchiveDuration.OneDay,
 		message: {
-			content: clipContent(user, clip),
+			content: clipContent(member, clip),
 		},
 	});
 	if (!newThread) return;
@@ -54,16 +58,21 @@ const handleForum = async (forum, user, clip) => {
 
 const sendClipToChannel = async (clip) => {
 	const channel = client.channels.cache.get(clips.channelId);
-	if (!channel) return console.log("❌ Couldn't find the clip channel!");
+	if (!channel) return console.error("Clips | ❌ Couldn't find the clip channel!");
 
 	const user = clipUsers.find((e) => e.steam === clip.steamId);
+	const member = user?.discord
+		? await channel.guild.members
+				.fetch(user?.discord)
+				.catch(() => console.error("Clips | Discord user not found:", user))
+		: null;
 
 	// Send to forum thread or normal text channel
 	if (channel.type === 15) {
-		await handleForum(channel, user, clip);
+		await handleForum(channel, user, member, clip);
 		return;
 	}
-	await channel.send(clipContent(user, clip));
+	await channel.send(clipContent(member, clip));
 };
 
 // Check recent club highlights
@@ -84,7 +93,7 @@ const checkForClubClips = async () => {
 		updateConfigUsers = false;
 		clips.users = clipUsers;
 		fs.writeFile("./configs/config.json", JSON.stringify(config, null, 4), (err) => {
-			if (err) console.log(err);
+			if (err) console.error("Clips |", err);
 		});
 	}
 };

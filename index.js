@@ -1,7 +1,7 @@
 const { Client, Collection, GatewayIntentBits } = require("discord.js");
 const fs = require("fs");
 const path = require("path");
-require("dotenv").config();
+require("dotenv").config({ quiet: true });
 
 // Create client with required intents
 const client = new Client({
