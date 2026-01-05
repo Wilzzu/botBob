@@ -65,7 +65,7 @@
 				"channelDesc": "Text channel where the message will be sent",
 				"message": "message",
 				"messageDesc": "Message content",
-				"messageSentTo": "✅ Message sent to",
+				"messageSent": "✅ Message sent! ${messageLink}",
 				"errors": {
 					"notSlash": "❌ Use the command `/${command}` !",
 					"missingParams": "❌ Some parameters are missing!",
@@ -87,6 +87,38 @@
 					"errDeletingMsg": "❌ An error occurred while deleting the message!",
 					"notMainAdmin": "❌ You don't have permissions to delete messages!",
 					"notBotMessage": "❌ You can only remove messages sent by this bot!"
+				}
+			},
+			"messageContent": {
+				"name": "get-message-content",
+				"description": "Get the content of a sent message",
+				"message": "message",
+				"messageDesc": "Message ID",
+				"channel": "channel",
+				"channelDesc": "Text channel where the message is. Leave empty if you want to use the current channel",
+				"errors": {
+					"notSlash": "❌ Use the command `/${command}` !",
+					"missingParams": "❌ Some parameters are missing!",
+					"notFound": "❌ Message not found!",
+					"errFetchingMsg": "❌ An error occurred while fetching the message!"
+				}
+			},
+			"editMessage": {
+				"name": "edit-message",
+				"description": "Edit a message sent by this bot",
+				"newContent": "content",
+				"newContentDesc": "New content of the message",
+				"message": "message",
+				"messageDesc": "Message ID",
+				"channel": "channel",
+				"channelDesc": "Text channel where the message is. Leave empty if you want to use the current channel",
+				"messageEdited": "✅ Message edited! ${messageLink}",
+				"errors": {
+					"notSlash": "❌ Use the command `/${command}` !",
+					"missingParams": "❌ Some parameters are missing!",
+					"errEditingMsg": "❌ An error occurred while editing the message!",
+					"notMainAdmin": "❌ You don't have permissions to edit messages!",
+					"notBotMessage": "❌ You can only edit messages sent by this bot!"
 				}
 			}
 		},
@@ -225,7 +257,7 @@
 				"channelDesc": "Tekstikanava jonne viesti lähetetään",
 				"message": "viesti",
 				"messageDesc": "Viestin sisältö",
-				"messageSentTo": "✅ Viesti lähetettiin kanavalle",
+				"messageSent": "✅ Viesti lähetetty! ${messageLink}",
 				"errors": {
 					"notSlash": "❌ Käytä komentoa `/${command}` !",
 					"missingParams": "❌ Jotkut arvot puuttuvat!",
@@ -247,6 +279,38 @@
 					"errDeletingMsg": "❌ Tapahtui virhe viestiä poistaessa!",
 					"notMainAdmin": "❌ Sinulla ei ole oikeuksia poistaa viestejä!",
 					"notBotMessage": "❌ Voit poistaa vain botin lähettämiä viestejä!"
+				}
+			},
+			"messageContent": {
+				"name": "hae-viestin-sisältö",
+				"description": "Hae lähetetyn viestin sisältö",
+				"message": "viesti",
+				"messageDesc": "Viestin ID",
+				"channel": "kanava",
+				"channelDesc": "Tekstikanava jossa viesti on. Jätä tyhjäksi jos haluat käyttää nykyistä kanavaa",
+				"errors": {
+					"notSlash": "❌ Käytä komentoa `/${command}` !",
+					"missingParams": "❌ Jotkut arvot puuttuvat!",
+					"notFound": "❌ Viestiä ei löytynyt!",
+					"errFetchingMsg": "❌ Tapahtui virhe viestiä haettaessa!"
+				}
+			},
+			"editMessage": {
+				"name": "muokkaa-viestiä",
+				"description": "Muokkaa botin lähettämää viestiä",
+				"newContent": "sisältö",
+				"newContentDesc": "Viestin uusi sisältö",
+				"message": "viesti",
+				"messageDesc": "Viestin ID",
+				"channel": "kanava",
+				"channelDesc": "Tekstikanava jossa viesti on. Jätä tyhjäksi jos haluat käyttää nykyistä kanavaa",
+				"messageEdited": "✅ Viesti muokattu! ${messageLink}",
+				"errors": {
+					"notSlash": "❌ Käytä komentoa `/${command}` !",
+					"missingParams": "❌ Jotkut arvot puuttuvat!",
+					"errEditingMsg": "❌ Tapahtui virhe viestiä muokatessa!",
+					"notMainAdmin": "❌ Sinulla ei ole oikeuksia muokata viestejä!",
+					"notBotMessage": "❌ Voit muokata vain botin lähettämiä viestejä!"
 				}
 			}
 		},
