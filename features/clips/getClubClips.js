@@ -15,7 +15,7 @@ const parseVideoUrl = (url) => {
 
 	if (userId && videoId)
 		return {
-			video: `https://media.allstar.gg/${userId}/clips/${videoId}.mp4`,
+			video: `https://media1.allstar.gg/${userId}/clips/${videoId}.mp4`,
 			clipPage: `https://allstar.gg/clip/${videoId}`,
 		};
 	return null;
