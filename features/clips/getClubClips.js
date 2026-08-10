@@ -31,12 +31,17 @@ const getClubHighlights = async () => {
 		foundHighlights.push(clip.id); // Add clip to found highlights
 		if (latestHighlights.includes(clip.id)) continue; // Skip clip if it has already been sent
 
+		// Use storage url from thumbnail to directly embed the video without other embed data
+		const videoUrl = clip?.thumbnailUrl.split(".");
+		videoUrl.pop();
+		videoUrl.push("mp4");
+
 		newHighlights.push({
 			id: clip.id,
 			desc: clip.description,
 			username: clip.username,
 			steamId: clip.steam64Id,
-			videoUrl: clip.url,
+			videoUrl: videoUrl.join("."),
 			clipPageUrl: clip.url,
 			fallbackUrl: clip.url,
 		});
