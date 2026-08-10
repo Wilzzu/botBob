@@ -7,20 +7,6 @@ const {
 
 let latestHighlights = clips.latestHighlights;
 
-const parseVideoUrl = (url) => {
-	if (!url) return;
-	const splitIds = url.split("/");
-	const userId = splitIds[3];
-	const videoId = splitIds[5].split("_")[0];
-
-	if (userId && videoId)
-		return {
-			video: `https://media1.allstar.gg/${userId}/clips/${videoId}.mp4`,
-			clipPage: `https://allstar.gg/clip/${videoId}`,
-		};
-	return null;
-};
-
 const getClubHighlights = async () => {
 	// Fetch recent highlights from the club page
 	const data = await axios
@@ -45,14 +31,13 @@ const getClubHighlights = async () => {
 		foundHighlights.push(clip.id); // Add clip to found highlights
 		if (latestHighlights.includes(clip.id)) continue; // Skip clip if it has already been sent
 
-		const videoData = parseVideoUrl(clip?.thumbnailUrl);
 		newHighlights.push({
 			id: clip.id,
 			desc: clip.description,
 			username: clip.username,
 			steamId: clip.steam64Id,
-			videoUrl: videoData?.video,
-			clipPageUrl: videoData?.clipPage,
+			videoUrl: clip.url,
+			clipPageUrl: clip.url,
 			fallbackUrl: clip.url,
 		});
 	}
